@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GrifHub | Case File #005</title>
+<meta name="description" content="A learning platform designed to replace Moodle at Griffith College. Goal-Directed Design, 55 survey responses, 16 wireframes, 19 high-fidelity screens across mobile and desktop.">
+
+<meta property="og:title" content="GrifHub | Redesigning the college learning platform">
+<meta property="og:description" content="Information architecture, wireframes and high-fidelity prototype for a student and lecturer learning platform. Figma, Goal-Directed Design.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="progress"></div>
+
+<header class="site-header">
+  <a class="brand" href="index.html">
+    <span class="brand__name">JINGSI</span>
+    <span class="brand__role">Digital Archivist &amp; Designer</span>
+  </a>
+
+  <span class="site-status"><span class="status-dot"></span>Open to work <b>&middot;</b> Dublin &amp; remote</span>
+
+  <button class="nav-toggle" aria-expanded="false" aria-controls="nav">
+    <span>Menu</span>
+    <span class="nav-toggle__bars" aria-hidden="true"><i></i><i></i></span>
+  </button>
+  <nav class="nav" id="nav" aria-label="Main">
+    <a href="index.html">Home</a>
+    <a href="work.html" aria-current="page">Work</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<main>
+
+  <section class="case-hero">
+    <div class="container">
+      <p class="section-label">Case File #005</p>
+      <h1 class="case-hero__title">GrifHub</h1>
+      <p class="lead">
+        A learning platform designed to replace Moodle at Griffith College, prototyped
+        in Figma across mobile and desktop. Three-person team working in Goal-Directed
+        Design. I was group lead and lead UX/UI designer: the information architecture,
+        all sixteen wireframes and every high-fidelity screen are mine.
+      </p>
+
+      <div class="meta-grid">
+        <div class="meta-item">
+          <span class="meta-item__label">Role</span>
+          <span class="meta-item__value">Group lead · Lead UX/UI designer</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-item__label">Context</span>
+          <span class="meta-item__value">Interaction Design, Griffith College Dublin</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-item__label">Method</span>
+          <span class="meta-item__value">Goal-Directed Design · Figma</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-item__label">Scale</span>
+          <span class="meta-item__value">16 wireframes · 19 screens · 5 connected flows</span>
+        </div>
+      </div>
+
+      <div class="case-live">
+        <a href="https://www.figma.com/proto/flYhbZbCLw5ENTC3NUVAOg/GrifHub-group-project?node-id=135-4" target="_blank" rel="noopener">Desktop prototype</a>
+        <a href="https://www.figma.com/proto/flYhbZbCLw5ENTC3NUVAOg/GrifHub-group-project?node-id=671-4182" target="_blank" rel="noopener">Mobile prototype</a>
+        <a href="https://www.figma.com/design/flYhbZbCLw5ENTC3NUVAOg/GrifHub-group-project?node-id=407-2814" target="_blank" rel="noopener">Figma file</a>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container container--narrow">
+      <p class="section-label">Concept</p>
+      <h2 class="section-title">A platform that works for the institution</h2>
+
+      <p class="lead">
+        Moodle scored 3.58 out of 5 in our survey, which sounds like a system nobody
+        has a problem with. The interesting number was what students actually opened
+        it for: assignment briefs 94.5 per cent, course material 87.3 per cent,
+        deadlines 78.2 per cent. Communication, timetable and grades were barely used.
+      </p>
+
+      <p class="lead">
+        That gap is not students deciding they do not need those things. It is students
+        deciding the platform is not where they go for them. 81.8 per cent were using
+        outside tools to communicate. 30.9 per cent kept their notes in a separate app.
+        The platform was not failing loudly, it was quietly losing the parts of the day
+        that matter most.
+      </p>
+
+      <p class="lead">
+        From the lecturer side the same pattern showed up. Edit Mode has to be switched
+        on every single time. Anything that is not a PDF, a link for instance, takes
+        manual work. Grades and attendance live in a different system entirely. And the
+        messaging tool is treated as unusable, so announcements go out by email, which
+        is exactly where students said they stop reading.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container container--narrow">
+      <p class="section-label">Decisions</p>
+      <h2 class="section-title">Five that shaped it</h2>
+
+      <div class="decisions">
+
+        <div class="decision">
+          <span class="decision__no">01</span>
+          <div>
+            <h3>The sitemap was written before the research, on purpose</h3>
+            <span class="why">Why a structure came first and was then allowed to be wrong</span>
+            <p>
+              Version 1.0 was drawn on 25 March, before a single survey went out, and
+              marked provisional in the file. We needed a structure to ask questions
+              about; you cannot ask someone whether deadlines are easy to find without
+              a guess at where deadlines live.
+            </p>
+            <p>
+              It was then rewritten twice. Version 2.0 after the survey and the lecturer
+              interview, which added colour-coded deadlines, multimedia upload for staff
+              and a student personal library. Version 3.0 after the personas and the
+              competitor research, which promoted communication into primary navigation
+              and split notes into three areas. Each version changed the shape of the
+              thing rather than bolting sections onto the side of it. The badges in
+              Fig. 03 mark which round of research put each node there.
+            </p>
+          </div>
+        </div>
+
+        <div class="decision">
+          <span class="decision__no">02</span>
+          <div>
+            <h3>Two platforms with different jobs, not one design resized</h3>
+            <span class="why">Why mobile and desktop were designed separately</span>
+            <p>
+              Over 80 per cent of students said they reach for a phone for quick checks.
+              94.5 per cent said they use a laptop when they actually sit down to work.
+              Those are two different products wearing the same name.
+            </p>
+            <p>
+              Mobile got biometric check-in, deadline tracking and urgent notices: things
+              you do standing up, between classes. Desktop got split-screen notes beside
+              lecture material, assignment submission and the lecturer broadcast board:
+              things you do sitting down for an hour. Same design language, same logic,
+              different purpose. Designing one and shrinking it would have thrown away
+              half of what the research told us.
+            </p>
+          </div>
+        </div>
+
+        <div class="decision">
+          <span class="decision__no">03</span>
+          <div>
+            <h3>Two cards removed for being correct and useless</h3>
+            <span class="why">Why analysis does not belong on a home screen</span>
+            <p>
+              The desktop dashboard started with a Performance card showing detailed
+              grade breakdowns. It was accurate and it was in the wrong place. Detailed
+              grade analysis is something you go looking for, on the Performance page,
+              not something that greets you.
+            </p>
+            <p>
+              The lecturer dashboard had the same problem in reverse. Attendance was a
+              per-module percentage chart across the semester. Dr Sarah, our lecturer
+              persona, checks attendance in the morning before a class. A semester
+              percentage cannot tell her who is missing right now, so it became today's
+              per-class present and absent counts.
+            </p>
+          </div>
+        </div>
+
+        <div class="decision">
+          <span class="decision__no">04</span>
+          <div>
+            <h3>A tool limitation turned into the interaction</h3>
+            <span class="why">Why dashboard personalisation is tapped and not dragged</span>
+            <p>
+              Flow 4 lets a student hide, pin and reorder the widgets on their dashboard.
+              The obvious interaction is drag and drop, and Figma prototype mode does not
+              support freeform dragging.
+            </p>
+            <p>
+              Faking it with a video or a single canned animation would have made the
+              prototype lie about how it behaves. So personalisation became tap-based,
+              which meant every control had to communicate intent without the physical
+              affordance that dragging gives you for free. It took more thinking than
+              anything else in the project.
+            </p>
+          </div>
+        </div>
+
+        <div class="decision">
+          <span class="decision__no">05</span>
+          <div>
+            <h3>Five people took ten minutes to kill my own card</h3>
+            <span class="why">Why the last change was the most useful one</span>
+            <p>
+              Near the end we ran an informal test with five Griffith students: two from
+              the wider team who had not touched the design work, three who had never
+              seen the project. Ten to twenty minutes each, no script, just what do you
+              find useful here.
+            </p>
+            <p>
+              Every single one of them said the Quick Stats card felt repetitive. They
+              were right and it was obvious once said out loud. Two of its three metrics
+              were already in the KPI row directly above it, and the third had been a
+              placeholder since the wireframe stage and nobody had gone back for it. We
+              had been looking at those screens for so long we had stopped seeing them.
+              It was replaced with a holiday countdown, an exam countdown and library
+              closing time: three things that are actually different from each other.
+              Fig. 01 shows the card as it ended up.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <p class="section-label">Specification</p>
+      <h2 class="section-title">What went into it</h2>
+
+      <div class="spec-shelf">
+
+        <div class="spec-cell">
+          <p class="spec-cell__label">Research base</p>
+          <div class="tags">
+            <span>55 survey responses</span>
+            <span>1 lecturer interview</span>
+            <span>3 competitor interviews</span>
+          </div>
+          <p class="spec-cell__note">
+            Run by Elin Kok Jia Yi, lead UX researcher on the team. Survey responses
+            came from current and former Griffith College students between 27 March
+            and 6 April 2026.
+          </p>
+        </div>
+
+        <div class="spec-cell">
+          <p class="spec-cell__label">My deliverables</p>
+          <div class="tags">
+            <span>Sitemap v1 to v3</span>
+            <span>16 annotated wireframes</span>
+            <span>5 user flows</span>
+            <span>19 high-fidelity screens</span>
+          </div>
+          <p class="spec-cell__note">
+            Nine mobile screens and ten desktop screens, with prototype connections
+            built for all five flows across both platforms.
+          </p>
+        </div>
+
+        <div class="spec-cell">
+          <p class="spec-cell__label">Design system</p>
+          <div class="tags">
+            <span>Figma Variables</span>
+            <span>Light and dark</span>
+            <span>8pt grid</span>
+          </div>
+          <p class="spec-cell__note">
+            Built by Yu Qiao Zhang, design ops lead. The group reviewed three moodboard
+            directions and chose Olive and Amber. Because the tokens were set up as
+            Variables with both modes, theme switching worked across the whole
+            high-fidelity build without rework.
+          </p>
+        </div>
+
+        <div class="spec-cell">
+          <p class="spec-cell__label">Personas</p>
+          <div class="tags">
+            <span>Doris, mobile</span>
+            <span>Julia, desktop</span>
+            <span>Dr Sarah, staff</span>
+          </div>
+          <p class="spec-cell__note">
+            Built from the survey and interview findings rather than assumptions.
+            Doris drove the mobile screens, Julia and Dr Sarah the desktop ones.
+          </p>
+        </div>
+
+        <div class="spec-cell">
+          <p class="spec-cell__label">Method</p>
+          <div class="tags">
+            <span>Goal-Directed Design</span>
+            <span>Cooper</span>
+            <span>Norman</span>
+          </div>
+          <p class="spec-cell__note">
+            Research, personas, journey mapping, requirements, information architecture
+            and wireframes all completed before any high-fidelity work began. Keeping
+            that order was the part of being group lead that took the most discipline.
+          </p>
+        </div>
+
+        <div class="spec-cell">
+          <p class="spec-cell__label">Accessibility</p>
+          <div class="tags">
+            <span>WCAG 2.1 checklist</span>
+            <span>Contrast</span>
+            <span>Touch targets</span>
+          </div>
+          <p class="spec-cell__note">
+            Checked across both platforms and recorded in the design document rather
+            than assumed from the palette.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <p class="section-label">Screens</p>
+      <h2 class="section-title">The prototype</h2>
+
+      <figure class="case-figure">
+        <img src="images/grifhub-01.jpg" alt="GrifHub desktop student dashboard showing KPI row, progress bar, schedule, deadlines and quick stats" loading="lazy">
+        <figcaption>Fig. 01 &middot; Desktop student dashboard, D01</figcaption>
+      </figure>
+      <figure class="case-figure">
+        <img src="images/grifhub-02.jpg" alt="GrifHub mobile sign-in screen beside the mobile dashboard" loading="lazy">
+        <figcaption>Fig. 02 &middot; Mobile sign-in and dashboard, M00 and M01</figcaption>
+      </figure>
+      <figure class="case-figure">
+        <img src="images/grifhub-03.jpg" alt="Sitemap version three, with badges marking which research round added each node" loading="lazy">
+        <figcaption>Fig. 03 &middot; Sitemap v3.0, badged by the research round that added each node</figcaption>
+      </figure>
+      <figure class="case-figure">
+        <img src="images/grifhub-04.jpg" alt="Annotated mobile timetable and campus map screens with high-fidelity change notes" loading="lazy">
+        <figcaption>Fig. 04 &middot; Two annotated screens, with the change notes carried from wireframe to high fidelity</figcaption>
+      </figure>
+      <figure class="case-figure">
+        <img src="images/grifhub-05.jpg" alt="Lecturer working board with announcement composer and attendance overview" loading="lazy">
+        <figcaption>Fig. 05 &middot; Lecturer working board, D02</figcaption>
+      </figure>
+      <figure class="case-figure">
+        <img src="images/grifhub-06.jpg" alt="Mobile dashboard KPI card collapsed, then expanded after a tap" loading="lazy">
+        <figcaption>Fig. 06 &middot; KPI tap to expand, before and after</figcaption>
+      </figure>
+      <figure class="case-figure">
+        <img src="images/grifhub-07.jpg" alt="Three step Face ID sign-in sequence on mobile" loading="lazy">
+        <figcaption>Fig. 07 &middot; Face ID sign-in, the three states</figcaption>
+      </figure>
+
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container container--narrow">
+      <p class="section-label">Reflection</p>
+      <h2 class="section-title">What it taught me</h2>
+
+      <p class="lead">
+        This was my first Figma project built from nothing. I came in assuming that
+        building websites would make the design side feel familiar and it did not.
+        There is a real distance between knowing what you want something to look like
+        and knowing how to construct it in a tool you have never opened.
+      </p>
+
+      <div class="decisions">
+
+        <div class="decision">
+          <span class="decision__no">01</span>
+          <div>
+            <h3>Sitting still was the hard part</h3>
+            <p>
+              Being group lead meant keeping us in the Goal-Directed Design sequence
+              instead of jumping ahead. There were weeks where the colours and components
+              were already forming in my head while I was still working on wireframes.
+              The interactions I am proudest of, the KPI tap-to-expand, the toast system,
+              the personalisation flow, were none of them in the original plan. They came
+              out of going back to the research and asking what would make this feel real
+              for Doris or Julia. I would not have found them if I had started with the
+              visuals.
+            </p>
+          </div>
+        </div>
+
+        <div class="decision">
+          <span class="decision__no">02</span>
+          <div>
+            <h3>The staff side is visibly thinner</h3>
+            <p>
+              Dr Sarah's journey through multimedia upload and view mode preview was
+              added late and it shows next to the student flow. It stayed on the list
+              and kept getting pushed behind the student side, and by the time we got
+              to it properly there was not enough runway to give it the same care. If
+              I ran this again the staff flow would come first, not last.
+            </p>
+          </div>
+        </div>
+
+        <div class="decision">
+          <span class="decision__no">03</span>
+          <div>
+            <h3>A layout I never built</h3>
+            <p>
+              I had a desktop dashboard in mind with a full brand gradient editorial
+              column down the left side that would have given the hierarchy much more
+              force. We did not get to it before the deadline. That one still bothers me.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container container--narrow">
+      <p class="section-label">Credits</p>
+      <h2 class="section-title">Who did what</h2>
+
+      <ul class="case-list">
+        <li><strong style="color:var(--text);">Chen See Ng, group lead and lead UX/UI designer.</strong> Information architecture and all three sitemap versions, sixteen annotated wireframes, five user flows, all nineteen high-fidelity screens and every prototype connection across mobile and desktop.</li>
+        <li><strong style="color:var(--text);">Elin Kok Jia Yi, lead UX researcher.</strong> Survey design and distribution, the lecturer interview, three written competitor interviews, the three personas, scenarios and journey maps.</li>
+        <li><strong style="color:var(--text);">Yu Qiao Zhang, design ops lead.</strong> The full design system: colour and gradient tokens as Figma Variables for light and dark, the 8pt grid, the component library, usage guidelines and behaviour specifications.</li>
+      </ul>
+    </div>
+  </section>
+
+  <nav class="case-nav" aria-label="Project navigation">
+    <a href="project-androids.html">← Previous file: Do Androids Dream?</a>
+    <a href="work.html">All records →</a>
+  </nav>
+
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <span>© 2026 Chen See Ng</span>
+    <span><a href="design-system.html">Design system</a></span>
+    <span><a href="mailto:jingsi00@icloud.com">jingsi00@icloud.com</a></span>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>

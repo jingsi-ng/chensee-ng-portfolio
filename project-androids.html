@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Do Androids Dream? | Case File #004</title>
+<meta name="description" content="An empathy drawing terminal built in p5.js that judges you by how you draw, not what you draw. 1,500 lines of JavaScript, no frameworks.">
+
+<meta property="og:title" content="Do Androids Dream? | An empathy drawing terminal">
+<meta property="og:description" content="A Voight-Kampff terminal built in p5.js. The machine measures your hand, not your picture.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="progress"></div>
+
+<header class="site-header">
+  <a class="brand" href="index.html">
+    <span class="brand__name">JINGSI</span>
+    <span class="brand__role">Digital Archivist &amp; Designer</span>
+  </a>
+
+  <span class="site-status"><span class="status-dot"></span>Open to work <b>&middot;</b> Dublin &amp; remote</span>
+
+  <button class="nav-toggle" aria-expanded="false" aria-controls="nav">
+    <span>Menu</span>
+    <span class="nav-toggle__bars" aria-hidden="true"><i></i><i></i></span>
+  </button>
+  <nav class="nav" id="nav" aria-label="Main">
+    <a href="index.html">Home</a>
+    <a href="work.html" aria-current="page">Work</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<main>
+
+  <section class="case-hero">
+    <div class="container">
+      <p class="section-label">Case File #004</p>
+      <h1 class="case-hero__title">Do Androids Dream?</h1>
+      <p class="lead">
+        An empathy drawing terminal, built in p5.js. You draw; the machine watches
+        <em>how</em> you draw (speed, tremor, hesitation) and decides whether a
+        human is holding the mouse.
+      </p>
+
+      <div class="meta-grid">
+        <div class="meta-item">
+          <span class="meta-item__label">Role</span>
+          <span class="meta-item__value">Concept, design, all code</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-item__label">Context</span>
+          <span class="meta-item__value">Programming for Digital Media, Griffith College Dublin</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-item__label">Stack</span>
+          <span class="meta-item__value">p5.js · Vanilla JS · CSS</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-item__label">Scale</span>
+          <span class="meta-item__value">~1,500 lines JS, no framework</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-item__label">Recognition</span>
+                    <span class="meta-item__value"><span class="status-dot"></span>Selected for the MSc Interactive Digital Media creative showcase</span>
+        </div>
+      </div>
+
+      <div class="case-live">
+        <a href="https://editor.p5js.org/jingsi-ng/full/mrbaqk-om" target="_blank" rel="noopener">Run the sketch</a>
+        <a href="https://editor.p5js.org/jingsi-ng/sketches/mrbaqk-om" target="_blank" rel="noopener">Read the code</a>
+      </div>
+
+    </div>
+  </section>
+
+    <section class="section">
+    <div class="container container--narrow">
+      <p class="section-label">Concept</p>
+      <h2 class="section-title">The premise</h2>
+      <p class="lead">
+        In Philip K. Dick&rsquo;s <em>Do Androids Dream of Electric Sheep?</em>, the
+        Voight-Kampff test separates humans from replicants by measuring involuntary
+        responses: the flicker in the eye, the half-second delay. Not what you
+        answer. What your body does while you answer.
+      </p>
+      <p class="lead">
+        I wanted to build that as an interface. The obvious version would score your
+        drawing, but that turns an empathy test into a drawing competition and
+        punishes people who can&rsquo;t draw. So this terminal ignores the picture
+        completely and reads the gesture instead.
+      </p>
+      <p class="lead">
+        Draw slowly, with small pauses, and it reads you as deliberating: <strong style="color:var(--text);">EMPATHIC</strong>. Let your hand shake and
+        it reads that as authentically human. Sweep across the canvas fast and clean,
+        with no hesitation and near-zero velocity variance, and it flags you. Being
+        <em>too smooth</em> is the thing that gets you caught.
+      </p>
+    </div>
+  </section>
+
+    <section class="section section--alt">
+    <div class="container container--narrow">
+      <p class="section-label">Approach</p>
+      <h2 class="section-title">Five decisions</h2>
+
+      <div class="decisions">
+
+        <div class="decision">
+          <span class="decision__no">01</span>
+          <div>
+            <h3>Measure the hand, not the drawing</h3>
+            <span class="why">The decision the whole project rests on</span>
+            <p>
+              Every stroke is sampled for velocity while it&rsquo;s being drawn. On
+              release the sketch computes the mean, the variance (which reads as
+              tremor), the number of micro-pauses, and total duration, then writes a
+              verdict line into a rolling case file in the sidebar.
+            </p>
+            <p>
+              The thresholds took the longest to tune. Too strict and everyone got
+              flagged; too loose and nothing ever fired. Three pauses over 1.2
+              seconds turned out to be the point where deliberation becomes
+              detectable rather than accidental.
+            </p>
+          </div>
+        </div>
+
+        <div class="decision">
+          <span class="decision__no">02</span>
+          <div>
+            <h3>Build the UI in the DOM, not on the canvas</h3>
+            <span class="why">Why I rejected the p5 default</span>
+            <p>
+              Most p5 sketches draw their controls onto the canvas. I put the entire
+              sidebar in real HTML instead, styled with CSS custom properties and
+              wired up through p5&rsquo;s DOM methods.
+            </p>
+            <p>
+              Canvas-drawn UI can&rsquo;t be selected, can&rsquo;t be reached by a
+              screen reader, can&rsquo;t inherit a stylesheet, and has to be
+              re-laid-out by hand on every resize. The cost is keeping two rendering
+              systems in sync, worth it for controls that behave like controls.
+            </p>
+          </div>
+        </div>
+
+        <div class="decision">
+          <span class="decision__no">03</span>
+          <div>
+            <h3>Two graphics buffers, not one</h3>
+            <span class="why">A performance and persistence problem at once</span>
+            <p>
+              Strokes accumulate in a persistent <code style="font-family:var(--mono); color:var(--gold);">createGraphics</code>
+              buffer, so the drawing survives every frame. The background (layered
+              grid, radar rings, landmarks, HUD brackets) lives in a second buffer
+              that&rsquo;s only rebuilt when the window resizes.
+            </p>
+            <p>
+              Redrawing that background 60 times a second would have been wasteful
+              for something that never changes. Splitting the buffers also meant I
+              could preserve the user&rsquo;s work across a resize instead of
+              wiping the canvas, which is what naive p5 resize handling does.
+            </p>
+          </div>
+        </div>
+
+        <div class="decision">
+          <span class="decision__no">04</span>
+          <div>
+            <h3>Give the constraint teeth</h3>
+            <span class="why">Consequences the user can&rsquo;t undo</span>
+            <p>
+              Every stroke costs empathy reserve, at different rates per brush.
+              Finding a real animal in the Sidney catalogue refunds a little. When
+              the reserve hits zero the electric sheep on the canvas tips over, the
+              text <em>&ldquo;the sheep died too&rdquo;</em> appears, and the canvas
+              locks.
+            </p>
+            <p>
+              A resource that only goes down is a countdown. A resource you can spend
+              carelessly or recover through attention is a choice, and the whole
+              piece is about whether attention counts as feeling.
+            </p>
+          </div>
+        </div>
+
+        <div class="decision">
+          <span class="decision__no">05</span>
+          <div>
+            <h3>End with a question the session generated</h3>
+            <span class="why">Making the data personal</span>
+            <p>
+              The finale reads the session&rsquo;s usage counters and assembles a
+              question out of what you actually did: how many empathy strokes, how
+              many electric animals you catalogued, how often you dialled the Penfield
+              organ into despair versus euphoria. You answer with one final stroke,
+              and that stroke is analysed for the verdict.
+            </p>
+            <p>
+              Drew nothing distinctive? It asks you to draw one stroke containing
+              everything you haven&rsquo;t said. The session then exports as a
+              downloadable case file.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+    <section class="section">
+    <div class="container">
+      <p class="section-label">Systems</p>
+      <h2 class="section-title">What&rsquo;s under it</h2>
+
+      <div class="spec-shelf">
+        <div class="spec-cell">
+          <p class="spec-cell__label">Six brushes</p>
+          <div class="tags">
+            <span class="tag">Penfield</span>
+            <span class="tag">Baseline</span>
+            <span class="tag">Kipple</span>
+            <span class="tag">Sidney</span>
+            <span class="tag">Fallout</span>
+            <span class="tag">Isidore</span>
+          </div>
+          <p class="spec-cell__note">
+            Each is a different drawing algorithm, not a size preset: Kipple is
+            recursive fractal branching, Baseline draws concentric hexagons with a
+            rotating crosshair, Isidore builds a node network that triggers a vision
+            every 25 nodes.
+          </p>
+        </div>
+
+        <div class="spec-cell">
+          <p class="spec-cell__label">Penfield Mood Organ</p>
+          <p style="margin:0; color:var(--muted); font-size:.92rem; line-height:1.7;">
+            A 0–999 dial that tints every stroke, red toward despair, gold toward
+            euphoria.
+          </p>
+          <p class="spec-cell__note">
+            The preset readouts are the novel&rsquo;s own settings: 481 awareness of
+            manifold possibilities, 594 despair, 888 joyous willingness to accept work.
+          </p>
+        </div>
+
+        <div class="spec-cell">
+          <p class="spec-cell__label">Four custom classes</p>
+          <div class="tags">
+            <span class="tag">Particle</span>
+            <span class="tag">DustMote</span>
+            <span class="tag">ElectricSheep</span>
+            <span class="tag">Node</span>
+          </div>
+          <p class="spec-cell__note">
+            Dust drifts on Perlin noise rather than linear velocity, so the fallout
+            moves like air rather than like rain.
+          </p>
+        </div>
+
+        <div class="spec-cell">
+          <p class="spec-cell__label">Five-stage boot</p>
+          <p style="margin:0; color:var(--muted); font-size:.92rem; line-height:1.7;">
+            Scan line expands, noise static with scrolling terminal text, HUD brackets
+            fly in, title fades with a glitch pass, then click to begin.
+          </p>
+          <p class="spec-cell__note">
+            The delay is deliberate. You have to wait to be let in.
+          </p>
+        </div>
+
+        <div class="spec-cell">
+          <p class="spec-cell__label">MK-02</p>
+          <p style="margin:0; color:var(--muted); font-size:.92rem; line-height:1.7;">
+            A draggable electric sheep with a pulsing LED that changes colour with
+            your reserve level, and tips over when it dies.
+          </p>
+        </div>
+
+        <div class="spec-cell">
+          <p class="spec-cell__label">Keyboard control</p>
+          <p style="margin:0; color:var(--muted); font-size:.92rem; line-height:1.7;">
+            1–6 switch brush, arrows resize, S save, C clear, R reset, M force a
+            Mercer fusion, Enter to the finale, D to download the case file.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <section class="section section--alt">
+    <div class="container">
+      <p class="section-label">Interface</p>
+      <h2 class="section-title">The terminal</h2>
+
+      <div style="margin-top:3rem;">
+        <figure class="case-figure">
+          <img src="images/androids-01.jpg" alt="Terminal with several coloured Penfield strokes and a dossier listing verdicts" loading="lazy">
+          <figcaption>Fig. 01 · Penfield strokes across three pigments, dossier reading the hand</figcaption>
+        </figure>
+        <figure class="case-figure">
+          <img src="images/androids-02.jpg" alt="Isidore brush node networks on the canvas with an EMPATHIC verdict in the sidebar" loading="lazy">
+          <figcaption>Fig. 02 · Isidore networks. Five micro-pauses over 1.3s reads as EMPATHIC</figcaption>
+        </figure>
+        <figure class="case-figure">
+          <img src="images/androids-03.jpg" alt="Boot sequence title reading Do Androids Dream, an empathy drawing terminal" loading="lazy">
+          <figcaption>Fig. 03 · Boot sequence, title reveal</figcaption>
+        </figure>
+        <figure class="case-figure">
+          <img src="images/androids-04.jpg" alt="Final verdict screen reading REPLICANT, mechanical precision detected, retirement advised" loading="lazy">
+          <figcaption>Fig. 04 · The verdict. Drawing too cleanly is what gets you caught</figcaption>
+        </figure>
+
+      </div>
+    </div>
+  </section>
+
+    <section class="section">
+    <div class="container container--narrow">
+      <p class="section-label">Debugging</p>
+      <h2 class="section-title">The bug that cost me a day</h2>
+      <p class="lead">
+        Fading particles came out solid. Passing a
+        <code style="font-family:var(--mono); color:var(--gold);">p5.Color</code>
+        object into <code style="font-family:var(--mono); color:var(--gold);">fill()</code>
+        with an alpha argument doesn&rsquo;t reliably apply that alpha; the colour
+        object carries its own, and mine won.
+      </p>
+      <p class="lead">
+        The fix was to stop passing colour objects around and pull the channels apart
+        by hand: read red, green and blue off the source colour, then rebuild it with
+        the alpha I actually wanted. Every fading element in the sketch does this now.
+      </p>
+      <p class="lead">
+        Worth including here because this is the shape of most real front-end
+        debugging: not a logic error, but an assumption about how a library behaves
+        that turns out to be slightly wrong.
+      </p>
+    </div>
+  </section>
+
+    <section class="section section--alt">
+    <div class="container container--narrow">
+      <p class="section-label">Reflection</p>
+      <h2 class="section-title">What I&rsquo;d change</h2>
+
+      <ul class="case-list">
+        <li><strong style="color:var(--text);">No touch support.</strong> The whole analysis assumes a mouse. Touch reports velocity differently and the thresholds would need retuning; I&rsquo;d design for both from the start next time.</li>
+        <li><strong style="color:var(--text);">Dead weight in the load.</strong> The p5.sound library is imported and never used. Small, but it&rsquo;s the kind of thing I should catch before shipping.</li>
+        <li><strong style="color:var(--text);">The finale questions are hand-written.</strong> They&rsquo;re selected by session data but drawn from a fixed pool. Generating the sentence structure itself would make the ending genuinely unrepeatable.</li>
+        <li><strong style="color:var(--text);">One file, 1,500 lines.</strong> It stayed navigable because of the comment structure, but the classes and the drawing routines should have been separate modules.</li>
+      </ul>
+
+      <div style="display:flex; gap:1.2rem; flex-wrap:wrap; margin-top:2.5rem;">
+        <a class="btn-primary" href="https://editor.p5js.org/jingsi-ng/full/mrbaqk-om" target="_blank" rel="noopener">Try the terminal</a>
+        <a class="btn-ghost" href="https://editor.p5js.org/jingsi-ng/sketches/mrbaqk-om" target="_blank" rel="noopener">Read the code</a>
+      </div>
+    </div>
+  </section>
+
+  <nav class="case-nav" aria-label="Project navigation">
+    <a href="project-camus.html">← Previous file: Albert Camus</a>
+    <a href="project-grifhub.html">Next file: GrifHub →</a>
+  </nav>
+
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <span>© 2026 Chen See Ng</span>
+    <span><a href="design-system.html">Design system</a></span>
+    <span><a href="contact.html">jingsi00@icloud.com</a></span>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>

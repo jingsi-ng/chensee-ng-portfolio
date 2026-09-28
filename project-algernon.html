@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Flowers for Algernon | Additional file</title>
+<meta name="description" content="A generative visualisation of Charlie Gordon's intelligence arc, where a single Gaussian function drives every layer of the composition.">
+
+<meta property="og:title" content="Flowers for Algernon | A generative visualisation">
+<meta property="og:description" content="One Gaussian function drives every dot, colour and word in the composition. Built in p5.js.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="progress"></div>
+
+<header class="site-header">
+  <a class="brand" href="index.html">
+    <span class="brand__name">JINGSI</span>
+    <span class="brand__role">Digital Archivist &amp; Designer</span>
+  </a>
+
+  <span class="site-status"><span class="status-dot"></span>Open to work <b>&middot;</b> Dublin &amp; remote</span>
+
+  <button class="nav-toggle" aria-expanded="false" aria-controls="nav">
+    <span>Menu</span>
+    <span class="nav-toggle__bars" aria-hidden="true"><i></i><i></i></span>
+  </button>
+  <nav class="nav" id="nav" aria-label="Main">
+    <a href="index.html">Home</a>
+    <a href="work.html" aria-current="page">Work</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<main>
+
+  <section class="case-hero">
+    <div class="container">
+      <p class="section-label">Additional · A-02</p>
+      <h1 class="case-hero__title">Flowers for Algernon</h1>
+      <p class="lead">
+        A generative visualisation of Charlie Gordon&rsquo;s intelligence arc, where
+        one mathematical function governs every dot, colour and word on the canvas.
+        Click to regenerate; no two compositions are the same.
+      </p>
+
+      <div class="meta-grid">
+        <div class="meta-item">
+          <span class="meta-item__label">Role</span>
+          <span class="meta-item__value">Concept, design, all code</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-item__label">Context</span>
+          <span class="meta-item__value">Programming for Digital Media, Griffith College Dublin</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-item__label">Stack</span>
+          <span class="meta-item__value">p5.js · Vanilla JS</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-item__label">Source</span>
+          <span class="meta-item__value">Daniel Keyes, 1959</span>
+        </div>
+      </div>
+
+      <div class="case-live">
+        <a href="https://editor.p5js.org/jingsi-ng/full/JWA-SJuSr" target="_blank" rel="noopener">Run the sketch</a>
+        <a href="https://editor.p5js.org/jingsi-ng/sketches/JWA-SJuSr" target="_blank" rel="noopener">Read the code</a>
+      </div>
+
+    </div>
+  </section>
+
+    <section class="section">
+    <div class="container container--narrow">
+      <p class="section-label">Concept</p>
+      <h2 class="section-title">One function, one arc</h2>
+      <p class="lead">
+        In Daniel Keyes&rsquo; novel, Charlie Gordon undergoes surgery that raises
+        his intelligence to genius level, then watches it recede. The story is a rise
+        and a fall, and Charlie is never only one of the two men he becomes.
+      </p>
+      <p class="lead">
+        The obvious way to draw that is a line chart. I wanted the arc to be the
+        <em>structure</em> of the image rather than a shape drawn inside it, so I
+        mapped it to the Y axis of the canvas and made one function the single source
+        of truth for the entire composition.
+      </p>
+
+      <div class="spec-cell" style="margin-top:2.5rem; border:1px solid var(--line);">
+        <p class="spec-cell__label">The whole system</p>
+        <pre style="margin:0; font-family:var(--mono); font-size:.82rem; line-height:1.9; color:var(--gold); overflow-x:auto;">function iq(y) {
+  let d = y - peakY;
+  return exp(-(d * d) / (2 * bellCurveW * bellCurveW));
+}</pre>
+        <p class="spec-cell__note">
+          A Gaussian curve. Returns 1 at the peak of Charlie&rsquo;s arc and falls
+          toward 0 in both directions. Every visual property in the piece reads from
+          this one value.
+        </p>
+      </div>
+
+      <p class="lead" style="margin-top:2.5rem;">
+        Dot size, colour saturation, opacity, whether a word appears legibly or as an
+        illegible scrawl: all of it derives from <code style="font-family:var(--mono); color:var(--gold);">iq(y)</code>.
+        Nothing is positioned by eye. If a mark sits high on the arc it is bright and
+        sharp; if it sits low it is dim and blurred, automatically.
+      </p>
+    </div>
+  </section>
+
+    <section class="section section--alt">
+    <div class="container container--narrow">
+      <p class="section-label">Approach</p>
+      <h2 class="section-title">Four decisions</h2>
+
+      <div class="decisions">
+
+        <div class="decision">
+          <span class="decision__no">01</span>
+          <div>
+            <h3>A Gaussian, not a hand-drawn curve</h3>
+            <span class="why">Why the maths came first</span>
+            <p>
+              I could have keyframed the arc by hand, but then every new layer would
+              need its own tuning and the layers would drift out of agreement. Going
+              to the Gaussian formula meant one line of code kept nine drawing
+              routines in perfect sync.
+            </p>
+            <p>
+              It also gave me a single dial. Changing <code style="font-family:var(--mono); color:var(--gold);">bellCurveW</code>
+              widens or narrows Charlie&rsquo;s window of lucidity, and the entire
+              image reorganises itself around the new arc.
+            </p>
+          </div>
+        </div>
+
+        <div class="decision">
+          <span class="decision__no">02</span>
+          <div>
+            <h3>Legibility as the emotional variable</h3>
+            <span class="why">The idea I&rsquo;m proudest of</span>
+            <p>
+              Text appears in three zones. Near the peak: clear, level, readable
+              phrases. Below it: tilting, fading, half-present. At the bottom of the
+              canvas: small scrawls at steep angles, and the words there are
+              Charlie&rsquo;s own misspellings: <em>progris riport</em>.
+            </p>
+            <p>
+              The novel is written as Charlie&rsquo;s journal, so his spelling and
+              grammar improve and then decay along with him. Encoding that into
+              typography meant the reader feels the arc before they consciously read
+              a single word.
+            </p>
+          </div>
+        </div>
+
+        <div class="decision">
+          <span class="decision__no">03</span>
+          <div>
+            <h3>Polar coordinates with a square-root bias</h3>
+            <span class="why">A distribution problem with a non-obvious fix</span>
+            <p>
+              The neural sphere places 160&ndash;240 nodes. Scattering them with a
+              uniform random radius produces a ring: the points bunch at the edge,
+              because the outer band has more area than the core.
+            </p>
+            <p>
+              Taking the square root of the random value corrects the distribution and
+              gives a cluster that&rsquo;s genuinely denser at the centre. 15% of nodes
+              are then pushed deliberately outside the boundary as stray connections
+              reaching for something out of range.
+            </p>
+          </div>
+        </div>
+
+        <div class="decision">
+          <span class="decision__no">04</span>
+          <div>
+            <h3>Three palettes, one click apart</h3>
+            <span class="why">Three Charlies, not three colourways</span>
+            <p>
+              Cream and green for the simple Charlie before the surgery. Deep midnight
+              blue for the genius, brilliant, and alone. Warm bone and rose for the
+              Charlie who has seen both and is losing one of them.
+            </p>
+            <p>
+              Clicking cycles the palette and regenerates the composition, so the
+              viewer moves through his life rather than comparing swatches.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+    <section class="section">
+    <div class="container">
+      <p class="section-label">Systems</p>
+      <h2 class="section-title">Nine layers</h2>
+      <p class="lead">
+        Drawn in a fixed order, but two of them are probabilistic: memory rings
+        appear 60% of the time, glitch fractures 70%. That gap is what stops repeated
+        clicks from feeling like variations on one image.
+      </p>
+
+      <div class="spec-shelf">
+        <div class="spec-cell">
+          <p class="spec-cell__label">Foundation</p>
+          <div class="tags">
+            <span class="tag">Paper texture</span>
+            <span class="tag">Sunlight</span>
+          </div>
+          <p class="spec-cell__note">The ground the composition sits on: grain, and a soft directional wash.</p>
+        </div>
+
+        <div class="spec-cell">
+          <p class="spec-cell__label">Arc-driven</p>
+          <div class="tags">
+            <span class="tag">Data blocks</span>
+            <span class="tag">Human dots</span>
+          </div>
+          <p class="spec-cell__note">
+            Clinical rectangles for the measurements; warm amber dots for the man
+            being measured. Both read their brightness from <code style="font-family:var(--mono); color:var(--gold);">iq(y)</code>.
+          </p>
+        </div>
+
+        <div class="spec-cell">
+          <p class="spec-cell__label">Neural sphere</p>
+          <p style="margin:0; color:var(--muted); font-size:.92rem; line-height:1.7;">
+            160&ndash;240 nodes with a depth value from core to edge, connected where
+            they fall close enough together.
+          </p>
+        </div>
+
+        <div class="spec-cell">
+          <p class="spec-cell__label">Probabilistic</p>
+          <div class="tags">
+            <span class="tag">Memory rings · 60%</span>
+            <span class="tag">Glitch · 70%</span>
+          </div>
+          <p class="spec-cell__note">Present or absent per generation. Absence is part of the design.</p>
+        </div>
+
+        <div class="spec-cell">
+          <p class="spec-cell__label">Text fragments</p>
+          <p style="margin:0; color:var(--muted); font-size:.92rem; line-height:1.7;">
+            Thirteen phrases from the journal, distributed across the three legibility
+            zones.
+          </p>
+        </div>
+
+        <div class="spec-cell">
+          <p class="spec-cell__label">Flowers</p>
+          <p style="margin:0; color:var(--muted); font-size:.92rem; line-height:1.7;">
+            Two to four in the lower canvas. Just over half the time a smaller second
+            flower appears beside one of them: Algernon.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <section class="section section--alt">
+    <div class="container">
+      <p class="section-label">Output</p>
+      <h2 class="section-title">The output</h2>
+
+      <div style="margin-top:3rem;">
+        <figure class="case-figure">
+          <img src="images/algernon-01.jpg" alt="Two generated compositions side by side, one in deep blue and one in cream and rose" loading="lazy">
+          <figcaption>Fig. 01 · Two generations, two palettes. Same function, same nine layers</figcaption>
+        </figure>
+        <figure class="case-figure">
+          <img src="images/algernon-02.jpg" alt="Detail showing phrases clear near the peak and fading into illegibility lower down" loading="lazy">
+          <figcaption>Fig. 02 · Detail. Legibility falls away as the arc descends</figcaption>
+        </figure>
+
+      </div>
+    </div>
+  </section>
+
+    <section class="section">
+    <div class="container container--narrow">
+      <p class="section-label">Process</p>
+      <h2 class="section-title">What I cut</h2>
+      <p class="lead">
+        The first version had a cream background, taken from the Chinese edition&rsquo;s
+        book cover. It was pleasant and it was wrong. Charlie is not someone who lived
+        in the light; he is someone who kept trying to find it. Moving to a dark
+        ground made the whole piece read correctly, and it changed nothing about the
+        code, only the palette values.
+      </p>
+      <p class="lead">
+        I also built and deleted a layer called <em>LonelinessLine</em>. At the opacity
+        the composition needed, it was simply invisible against the dark background.
+        Rather than raise the opacity and unbalance everything else, I removed it; the idea was already carried by the stray nodes reaching outside the sphere.
+      </p>
+      <p class="lead">
+        Deleting a layer you spent an evening on is harder than adding one. It&rsquo;s
+        also usually the right call.
+      </p>
+    </div>
+  </section>
+
+    <section class="section section--alt">
+    <div class="container container--narrow">
+      <p class="section-label">Reflection</p>
+      <h2 class="section-title">What I&rsquo;d change</h2>
+
+      <ul class="case-list">
+        <li><strong style="color:var(--text);">Fixed 800&times;800 canvas.</strong> The composition is built around absolute pixel values, so it can&rsquo;t adapt to the viewport. Working in ratios from the start would have cost nothing and made it responsive.</li>
+        <li><strong style="color:var(--text);">Palettes as thirty loose variables.</strong> Each palette unpacks into individual R, G and B globals. It works, but a nested object accessed directly would have removed sixty lines and a whole category of typo.</li>
+        <li><strong style="color:var(--text);">No way to save a generation.</strong> Every click destroys the previous composition permanently. A save key would have been four lines and I regret not adding it.</li>
+        <li><strong style="color:var(--text);">Click is the only input.</strong> Exposing <code style="font-family:var(--mono); color:var(--gold);">bellCurveW</code> as a slider would let a viewer widen or narrow Charlie&rsquo;s lucid window themselves, which is a more interesting question than which palette they prefer.</li>
+      </ul>
+
+      <div style="display:flex; gap:1.2rem; flex-wrap:wrap; margin-top:2.5rem;">
+        <a class="btn-primary" href="https://editor.p5js.org/jingsi-ng/full/JWA-SJuSr" target="_blank" rel="noopener">Generate one</a>
+        <a class="btn-ghost" href="https://editor.p5js.org/jingsi-ng/sketches/JWA-SJuSr" target="_blank" rel="noopener">Read the code</a>
+      </div>
+    </div>
+  </section>
+
+  <nav class="case-nav" aria-label="Project navigation">
+    <a href="project-sos.html">← Ireland SOS</a>
+    <a href="work.html">All records →</a>
+  </nav>
+
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <span>© 2026 Chen See Ng</span>
+    <span><a href="design-system.html">Design system</a></span>
+    <span><a href="contact.html">jingsi00@icloud.com</a></span>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>

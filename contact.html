@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact | The Curated Archive</title>
+<meta name="description" content="Get in touch with Chen See Ng, available for junior web and digital roles in Dublin and remote across the EU.">
+
+<meta property="og:title" content="Contact | The Curated Archive">
+<meta property="og:description" content="Get in touch with Chen See Ng, available for junior web and digital roles in Dublin and remote across the EU.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="progress"></div>
+
+<header class="site-header">
+  <a class="brand" href="index.html">
+    <span class="brand__name">JINGSI</span>
+    <span class="brand__role">Digital Archivist &amp; Designer</span>
+  </a>
+
+  <span class="site-status"><span class="status-dot"></span>Open to work <b>&middot;</b> Dublin &amp; remote</span>
+
+  <button class="nav-toggle" aria-expanded="false" aria-controls="nav">
+    <span>Menu</span>
+    <span class="nav-toggle__bars" aria-hidden="true"><i></i><i></i></span>
+  </button>
+  <nav class="nav" id="nav" aria-label="Main">
+    <a href="index.html">Home</a>
+    <a href="work.html">Work</a>
+    <a href="about.html">About</a>
+    <a href="contact.html" aria-current="page">Contact</a>
+  </nav>
+</header>
+
+<main>
+
+  <section class="case-hero">
+    <div class="container">
+      <p class="section-label">Request Access</p>
+      <h1 class="case-hero__title">Contact</h1>
+      <p class="lead">
+        Open to junior web and digital roles in Dublin, and remote across the EU.
+        Freelance and short contracts welcome too.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="contact-grid">
+
+                <div>
+          <p class="section-label">Send a Transmission</p>
+
+                    <form id="contact-form" novalidate>
+            <div class="field">
+              <label for="name">Your name</label>
+              <input type="text" id="name" name="name" autocomplete="name">
+            </div>
+
+            <div class="field">
+              <label for="email">Email address</label>
+              <input type="email" id="email" name="email" autocomplete="email">
+            </div>
+
+            <div class="field">
+              <label for="message">Message</label>
+              <textarea id="message" name="message"></textarea>
+            </div>
+
+            <button type="submit" class="btn-primary">Send message</button>
+            <p class="form-note" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+
+                <div>
+          <p class="section-label">Direct Channels</p>
+
+          <ul class="contact-list">
+            <li>
+              <span class="k">Email</span>
+              <span class="v"><a href="mailto:jingsi00@icloud.com">jingsi00@icloud.com</a></span>
+            </li>
+            <li>
+              <span class="k">LinkedIn</span>
+              <span class="v"><a href="https://www.linkedin.com/in/chenseeng" target="_blank" rel="noopener">/in/chenseeng</a></span>
+            </li>
+            <li>
+              <span class="k">GitHub</span>
+              <span class="v"><a href="https://github.com/jingsi-ng" target="_blank" rel="noopener">@jingsi-ng</a></span>
+            </li>
+            <li>
+              <span class="k">Based in</span>
+              <span class="v">Dublin, Ireland</span>
+            </li>
+            <li>
+              <span class="k">Status</span>
+              <span class="v"><span class="status-dot"></span>Available for work</span>
+            </li>
+          </ul>
+
+          <div style="margin-top:2.5rem;">
+            <a class="btn-ghost" href="files/ChenSeeNg-CV.pdf" download>Download CV (PDF)</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container container--narrow transmission">
+      <p class="section-label">Reading Room Hours</p>
+      <span class="transmission__mark" aria-hidden="true">&ldquo;</span>
+      <blockquote class="transmission__quote">
+        Every message gets a reply. Usually within two days.
+      </blockquote>
+      <p class="transmission__src">Archive policy &nbsp;·&nbsp; Ref <b>#AC-002</b></p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <span>© 2026 Chen See Ng</span>
+    <span><a href="design-system.html">Design system</a></span>
+    <span><a href="mailto:jingsi00@icloud.com">jingsi00@icloud.com</a></span>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>

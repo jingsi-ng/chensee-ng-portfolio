@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Work | The Curated Archive</title>
+<meta name="description" content="Selected web development and design projects by Chen See Ng.">
+
+<meta property="og:title" content="Work | The Curated Archive">
+<meta property="og:description" content="Selected web development and design projects by Chen See Ng.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="progress"></div>
+
+<header class="site-header">
+  <a class="brand" href="index.html">
+    <span class="brand__name">JINGSI</span>
+    <span class="brand__role">Digital Archivist &amp; Designer</span>
+  </a>
+
+  <span class="site-status"><span class="status-dot"></span>Open to work <b>&middot;</b> Dublin &amp; remote</span>
+
+  <button class="nav-toggle" aria-expanded="false" aria-controls="nav">
+    <span>Menu</span>
+    <span class="nav-toggle__bars" aria-hidden="true"><i></i><i></i></span>
+  </button>
+  <nav class="nav" id="nav" aria-label="Main">
+    <a href="index.html">Home</a>
+    <a href="work.html" aria-current="page">Work</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<main>
+
+    <section class="case-hero">
+    <div class="container">
+      <p class="section-label">Catalogue</p>
+      <h1 class="case-hero__title">Work</h1>
+      <p class="lead">
+        Every project in this archive has its own case file: what the brief was,
+        what I decided, and what I&rsquo;d do differently. Open one to read it.
+      </p>
+
+      <div class="meta-grid">
+        <div class="meta-item">
+          <span class="meta-item__label">Records</span>
+          <span class="meta-item__value">04 case files · 02 additional</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-item__label">Span</span>
+          <span class="meta-item__value">2025 to 2026</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-item__label">Access</span>
+          <span class="meta-item__value"><span class="status-dot"></span>Public</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <section class="section">
+    <div class="container">
+      <div class="works">
+
+        <a class="work-card" data-file="File #001" href="project-still.html">
+          <div class="work-card__media">
+            <span class="work-card__stamp">File #001</span>
+            <img src="images/project-still.jpg" alt="Somewhere Still ocean descent">
+            <div class="work-card__veil"><span>Open File</span></div>
+          </div>
+          <div class="work-card__body">
+            <p class="work-card__cat">Lead developer &amp; designer · MSc dissertation · 2026</p>
+            <h2 class="work-card__title">Somewhere Still</h2>
+            <p class="work-card__desc">
+              A browser experience about Alzheimer&rsquo;s built as a descent into deep
+              water, where the interface performs the symptom instead of naming it.
+              Three.js, p5.js and GLSL, with no framework and no build step.
+            </p>
+            <div class="tags">
+              <span class="tag">Three.js</span>
+              <span class="tag">p5.js</span>
+              <span class="tag">GLSL</span>
+              <span class="tag">Design system</span>
+              <span class="tag">User testing</span>
+            </div>
+          </div>
+        </a>
+
+        <a class="work-card" data-file="File #002" href="project-vault.html">
+          <div class="work-card__media">
+            <span class="work-card__stamp">File #002</span>
+            <img src="images/project-vault.jpg" alt="Memory Vault library page">
+            <div class="work-card__veil"><span>Open File</span></div>
+          </div>
+          <div class="work-card__body">
+            <p class="work-card__cat">Full stack · Astro &amp; Supabase · 2025</p>
+            <h2 class="work-card__title">Memory Vault</h2>
+            <p class="work-card__desc">
+              A <em>Fahrenheit 451</em> archive with real authentication, full CRUD and
+              relational data. Server-rendered Astro, Supabase Postgres, session tokens
+              in httpOnly cookies, deployed on Netlify.
+            </p>
+            <div class="tags">
+              <span class="tag">Astro SSR</span>
+              <span class="tag">Supabase</span>
+              <span class="tag">Postgres</span>
+              <span class="tag">Tailwind</span>
+              <span class="tag">Auth</span>
+            </div>
+          </div>
+        </a>
+
+        <a class="work-card" data-file="File #003" href="project-camus.html">
+          <div class="work-card__media">
+            <span class="work-card__stamp">File #003</span>
+            <img src="images/project-camus.jpg" alt="Albert Camus site entry page">
+            <div class="work-card__veil"><span>Open File</span></div>
+          </div>
+          <div class="work-card__body">
+            <p class="work-card__cat">Front-end · Multi-page site · 2025</p>
+            <h2 class="work-card__title">Albert Camus</h2>
+            <p class="work-card__desc">
+              An eleven-page responsive site built from scratch. Fifty design tokens,
+              dark mode, accessible carousel and timeline components, and forty-four
+              commits of iteration. No framework.
+            </p>
+            <div class="tags">
+              <span class="tag">HTML/CSS</span>
+              <span class="tag">Vanilla JS</span>
+              <span class="tag">Design tokens</span>
+              <span class="tag">Accessibility</span>
+              <span class="tag">Git</span>
+            </div>
+          </div>
+        </a>
+
+        <a class="work-card" data-file="File #004" href="project-androids.html">
+          <div class="work-card__media">
+            <span class="work-card__stamp">File #004</span>
+            <img src="images/project-androids.jpg" alt="Do Androids Dream terminal interface">
+            <div class="work-card__veil"><span>Open File</span></div>
+          </div>
+          <div class="work-card__body">
+            <p class="work-card__cat">Creative coding · p5.js · 2026 · Selected for the department showcase</p>
+            <h2 class="work-card__title">Do Androids Dream?</h2>
+            <p class="work-card__desc">
+              An empathy drawing terminal that reads how you draw rather than what you
+              draw, measuring speed, tremor and hesitation on every stroke to decide
+              whether a human is holding the mouse. 1,500 lines, no framework.
+            </p>
+            <div class="tags">
+              <span class="tag">p5.js</span>
+              <span class="tag">Vanilla JS</span>
+              <span class="tag">Interaction design</span>
+              <span class="tag">Generative</span>
+            </div>
+          </div>
+        </a>
+        <a class="work-card" data-file="File #005" href="project-grifhub.html">
+          <div class="work-card__media">
+            <span class="work-card__stamp">File #005</span>
+            <img src="images/project-grifhub.jpg" alt="GrifHub desktop student dashboard">
+            <div class="work-card__veil"><span>Open File</span></div>
+          </div>
+          <div class="work-card__body">
+            <p class="work-card__cat">UX/UI &middot; Figma prototype &middot; 2026 &middot; Group lead, three-person team</p>
+            <h2 class="work-card__title">GrifHub</h2>
+            <p class="work-card__desc">
+              A learning platform designed to replace Moodle at Griffith College. Built
+              on 55 survey responses and a lecturer interview, through sixteen wireframes
+              to nineteen screens across mobile and desktop. User testing killed one of
+              my own cards a week before the deadline.
+            </p>
+            <div class="tags">
+              <span class="tag">Figma</span>
+              <span class="tag">UX research</span>
+              <span class="tag">Information architecture</span>
+              <span class="tag">Prototyping</span>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="also numbered">
+        <span class="ghost-no" aria-hidden="true">A</span>
+        <p class="section-label">Also in the archive</p>
+        <h2 class="section-title section-title--upright" style="font-size:clamp(1.5rem,3.5vw,2.2rem);">Also worth opening</h2>
+        <p class="lead" style="margin-top:1rem;">
+          Two more projects with case files of their own, kept out of the main
+          catalogue to keep it short.
+        </p>
+
+        <ul class="also__list">
+          <li class="also__item">
+            <span class="also__no">A-01</span>
+            <span>
+              <h3 class="also__title"><a href="project-sos.html">Ireland SOS</a></h3>
+              <p class="also__desc">
+                A survival guide for international students, entered by answering a
+                phone call you are not allowed to decline. Two questions at the door
+                rewrite the homepage before the visitor sees it.
+              </p>
+            </span>
+            <span class="also__meta">Design &amp; front end · 2026</span>
+          </li>
+
+          <li class="also__item">
+            <span class="also__no">A-02</span>
+            <span>
+              <h3 class="also__title"><a href="project-algernon.html">Flowers for Algernon</a></h3>
+              <p class="also__desc">
+                A generative composition in which a single Gaussian function governs
+                nine drawing layers, including whether text renders legibly or as a
+                scrawl.
+              </p>
+            </span>
+            <span class="also__meta">p5.js · 2025</span>
+          </li>
+        </ul>
+
+        <p class="section-label" style="margin-top:4.5rem;">Print</p>
+        <h3 class="section-title section-title--upright" style="font-size:clamp(1.4rem,3vw,2rem);">Two posters</h3>
+        <p class="lead" style="margin-top:.8rem;">Built in Photoshop for Visual Communication. The only work here that was never meant for a screen.</p>
+
+        <div class="prints">
+          <figure>
+            <img src="images/poster-flatland.jpg" alt="Film poster for Flatland: the title split across a torn, fluid blue shape" loading="lazy">
+            <figcaption>
+              <b>Flatland</b>
+              A film poster for Edwin Abbott&rsquo;s satire. The title breaks across the edge
+              of the shape, one half in each dimension.
+            </figcaption>
+          </figure>
+          <figure>
+            <img src="images/poster-sinatra.jpg" alt="Concert poster for Frank Sinatra with type set in circles like a record" loading="lazy">
+            <figcaption>
+              <b>Frank Sinatra, 1965</b>
+              A concert poster where the supporting copy runs in circles, set on the
+              orbit of a record and a moon.
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <section class="section section--alt">
+    <div class="container">
+      <p class="section-label">Technical Stack</p>
+      <h2 class="section-title">Tools on the shelf</h2>
+
+      <p class="lead" style="margin-bottom:2rem;">
+        The visual system behind this site is documented separately: <a href="design-system.html" style="color:var(--gold); border-bottom:1px solid var(--gold-dim);">read the design system</a>.
+      </p>
+
+      <div class="tags" style="margin-top:2rem; gap:.85rem;">
+        <span class="tag">HTML5</span>
+        <span class="tag">CSS3</span>
+        <span class="tag">JavaScript</span>
+        <span class="tag">Astro (SSR)</span>
+        <span class="tag">Supabase / Postgres</span>
+        <span class="tag">Tailwind</span>
+        <span class="tag">p5.js</span>
+        <span class="tag">Canvas API</span>
+        <span class="tag">WordPress</span>
+        <span class="tag">Authentication</span>
+        <span class="tag">Git &amp; GitHub</span>
+        <span class="tag">Figma</span>
+        <span class="tag">Netlify</span>
+        <span class="tag">Generative systems</span>
+        <span class="tag">Responsive design</span>
+        <span class="tag">Accessibility (ARIA)</span>
+        <span class="tag">Dark mode / design tokens</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container container--narrow cta-block" style="text-align:center;">
+      <p class="section-label">Next</p>
+      <h2 class="section-title">Something you&rsquo;d like built?</h2>
+      <a class="btn-primary" href="contact.html">Start a conversation</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <span>© 2026 Chen See Ng</span>
+    <span><a href="design-system.html">Design system</a></span>
+    <span><a href="contact.html">jingsi00@icloud.com</a></span>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>

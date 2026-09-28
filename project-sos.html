@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ireland SOS | Additional file</title>
+<meta name="description" content="A survival guide for international students in Ireland, entered by answering a phone call. Editorial design, personalised onboarding, 14-day campaign.">
+
+<meta property="og:title" content="Ireland SOS | You can't decline this call">
+<meta property="og:description" content="A survival guide for international students in Ireland. Editorial design and a two-question onboarding that personalises the whole homepage.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="progress"></div>
+
+<header class="site-header">
+  <a class="brand" href="index.html">
+    <span class="brand__name">JINGSI</span>
+    <span class="brand__role">Digital Archivist &amp; Designer</span>
+  </a>
+
+  <span class="site-status"><span class="status-dot"></span>Open to work <b>&middot;</b> Dublin &amp; remote</span>
+
+  <button class="nav-toggle" aria-expanded="false" aria-controls="nav">
+    <span>Menu</span>
+    <span class="nav-toggle__bars" aria-hidden="true"><i></i><i></i></span>
+  </button>
+  <nav class="nav" id="nav" aria-label="Main">
+    <a href="index.html">Home</a>
+    <a href="work.html" aria-current="page">Work</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<main>
+
+  <section class="case-hero">
+    <div class="container">
+      <p class="section-label">Additional · A-01</p>
+      <h1 class="case-hero__title">Ireland SOS</h1>
+      <p class="lead">
+        A survival guide for international students arriving in Ireland, entered by
+        answering a phone call. Two questions at the door reshape the homepage before
+        the visitor ever sees it.
+      </p>
+
+      <div class="meta-grid">
+        <div class="meta-item">
+          <span class="meta-item__label">Role</span>
+          <span class="meta-item__value">Design and front-end build</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-item__label">Context</span>
+          <span class="meta-item__value">Group project, Griffith College Dublin</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-item__label">Scope</span>
+          <span class="meta-item__value">Site, identity, 14-day campaign</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-item__label">Stack</span>
+          <span class="meta-item__value">HTML, CSS, vanilla JavaScript</span>
+        </div>
+      </div>
+
+      <div class="case-live">
+        <a href="https://ireland-sos.netlify.app/" target="_blank" rel="noopener">Open the site</a>
+      </div>
+
+    </div>
+  </section>
+
+    <section class="section">
+    <div class="container container--narrow">
+      <p class="section-label">Concept</p>
+      <h2 class="section-title">Nobody warned you</h2>
+      <p class="lead">
+        Arriving somewhere new as an international student is mostly a long sequence of
+        things nobody thought to mention. The PPS number. The bank account you
+        can&rsquo;t open without an address you can&rsquo;t get without a bank account.
+        And a way of speaking where <em>&ldquo;it&rsquo;s grand&rdquo;</em> can mean
+        anything at all.
+      </p>
+      <p class="lead">
+        The obvious format is a guide. A list of articles, a search box, a sidebar. But
+        a guide is something you consult when you already know what to ask, and the
+        actual experience of arriving is not knowing what the question is.
+      </p>
+      <p class="lead">
+        So the site opens as an incoming call. Someone is reaching out to <em>you</em>,
+        before you have worked out what you need. That framing set every decision that
+        followed.
+      </p>
+    </div>
+  </section>
+
+    <section class="section section--alt">
+    <div class="container container--narrow">
+      <p class="section-label">Approach</p>
+      <h2 class="section-title">Five decisions</h2>
+
+      <div class="decisions">
+
+        <div class="decision">
+          <span class="decision__no">01</span>
+          <div>
+            <h3>The call you cannot decline</h3>
+            <span class="why">The detail the whole concept rests on</span>
+            <p>
+              The entry screen is a phone call with the two buttons you would expect.
+              Press Accept and you go through onboarding. Press Decline and the button
+              shakes six times, refuses, and the status line above it changes to
+              <em>&ldquo;You can&rsquo;t decline &middot; we&rsquo;re here for you.&rdquo;</em>
+            </p>
+            <p>
+              A decorative version of this screen would have made Decline work, or
+              hidden it. Making it visibly refuse turns a piece of interface into the
+              product&rsquo;s actual promise: a support line that does not let you hang
+              up on yourself. It is roughly fifteen lines of JavaScript and it is the
+              thing people remember.
+            </p>
+          </div>
+        </div>
+
+        <div class="decision">
+          <span class="decision__no">02</span>
+          <div>
+            <h3>Two questions, then a different homepage</h3>
+            <span class="why">Personalisation that changes content, not just a name</span>
+            <p>
+              Onboarding asks how long you have been in Ireland and which city you
+              landed in. Nothing is stored, nothing is sent anywhere, and neither
+              question can be answered wrong.
+            </p>
+            <p>
+              Both answers then rewrite the page. Someone in week one reads
+              <em>&ldquo;Everything is confusing, and that is completely normal&rdquo;</em>;
+              someone two years in reads <em>&ldquo;the newcomers are going to need
+              your stories.&rdquo;</em> The live status badge becomes
+              <em>&ldquo;Welcome to Galway.&rdquo;</em> Ninety seconds later a small
+              toast arrives: <em>&ldquo;Yes, that is rain. Yes, horizontal.&rdquo;</em>
+            </p>
+            <p>
+              The late toast is deliberate. Personalisation that all lands at once reads
+              as a form submission. One thing arriving after you have started reading
+              reads as someone paying attention.
+            </p>
+          </div>
+        </div>
+
+        <div class="decision">
+          <span class="decision__no">03</span>
+          <div>
+            <h3>Editorial, not institutional</h3>
+            <span class="why">Why it does not look like a university page</span>
+            <p>
+              Student support material almost always looks official, and official is
+              exactly what a confused newcomer has been failing to understand all week.
+              The design goes the other way: Fraunces at display size running to the
+              edge of the screen, warm peach and cream instead of navy and white, a
+              ticker across the top like a magazine cover line.
+            </p>
+            <p>
+              Fraunces for headlines because its high contrast carries confidence, DM
+              Sans for body because the content is long and practical, JetBrains Mono
+              for the small system labels that hold the hotline framing together.
+            </p>
+          </div>
+        </div>
+
+        <div class="decision">
+          <span class="decision__no">04</span>
+          <div>
+            <h3>Building the joke into the layout</h3>
+            <span class="why">Where the tone lives</span>
+            <p>
+              The Grand Translator sets six Irish phrases against what they actually
+              mean, in a four-column row: number, phrase, translation, category. The
+              structure is a dictionary. The content is not.
+              <em>&ldquo;We should grab coffee sometime&rdquo;</em> translates to
+              <em>&ldquo;this conversation is now officially over.&rdquo;</em>
+            </p>
+            <p>
+              Each row hides a second translation on click, so the reader who lingers
+              gets rewarded. Hover notes carry the smallest jokes, which keeps them out
+              of the main reading line where they would slow the useful content down.
+            </p>
+          </div>
+        </div>
+
+        <div class="decision">
+          <span class="decision__no">05</span>
+          <div>
+            <h3>Fourteen days, participation last</h3>
+            <span class="why">Campaign structure as a design problem</span>
+            <p>
+              The launch runs six themes across fourteen days, opening with purely
+              practical content and no call to action at all: PPS numbers,
+              accommodation, bank accounts, GP registration.
+            </p>
+            <p>
+              Asking newcomers to post under a hashtag on day one asks them to be
+              visible in a place where they already feel foreign. Trust gets earned
+              first and participation is invited at the end, which is why
+              <em>#SurviveInIreland</em> appears where it does rather than in the
+              opening week.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+    <section class="section">
+    <div class="container">
+      <p class="section-label">System</p>
+      <h2 class="section-title">The pieces</h2>
+
+      <div class="spec-shelf">
+        <div class="spec-cell">
+          <p class="spec-cell__label">Palette</p>
+          <div class="tags">
+            <span class="tag">#F7895A Peach</span>
+            <span class="tag">#FFF8F2 Cream</span>
+            <span class="tag">#FFD54A Yellow</span>
+            <span class="tag">#1A0A00 Ink</span>
+          </div>
+          <p class="spec-cell__note">
+            Warm throughout, with near-black reserved for the call screen so the entry
+            reads as a phone rather than a page.
+          </p>
+        </div>
+
+        <div class="spec-cell">
+          <p class="spec-cell__label">Type</p>
+          <p style="margin:0; color:var(--muted); font-size:.92rem; line-height:1.7;">
+            Fraunces for display, DM Sans for reading, JetBrains Mono for system labels.
+          </p>
+        </div>
+
+        <div class="spec-cell">
+          <p class="spec-cell__label">Onboarding</p>
+          <p style="margin:0; color:var(--muted); font-size:.92rem; line-height:1.7;">
+            Four panels with progress dots: call, duration, city, connecting. Each
+            answer selected before the next panel slides in.
+          </p>
+        </div>
+
+        <div class="spec-cell">
+          <p class="spec-cell__label">Interactions</p>
+          <div class="tags">
+            <span class="tag">Hotline quiz</span>
+            <span class="tag">Expanding rows</span>
+            <span class="tag">Category filter</span>
+            <span class="tag">Counter</span>
+          </div>
+        </div>
+
+        <div class="spec-cell">
+          <p class="spec-cell__label">Motion</p>
+          <p style="margin:0; color:var(--muted); font-size:.92rem; line-height:1.7;">
+            IntersectionObserver reveals with staggered children; the hero statistic
+            counts up on a cubic ease once, then the observer releases it.
+          </p>
+        </div>
+
+        <div class="spec-cell">
+          <p class="spec-cell__label">Scale</p>
+          <p style="margin:0; color:var(--muted); font-size:.92rem; line-height:1.7;">
+            Around 2,800 lines across three pages, no framework, no dependencies.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <section class="section section--alt">
+    <div class="container">
+      <p class="section-label">Interface</p>
+      <h2 class="section-title">The site</h2>
+
+      <div style="margin-top:3rem;">
+        <figure class="case-figure">
+          <img src="images/sos-01.jpg" alt="Incoming call screen where the status line reads you cannot decline, we are here for you" loading="lazy">
+          <figcaption>Fig. 01 · Press Decline and the button refuses</figcaption>
+        </figure>
+        <figure class="case-figure">
+          <img src="images/sos-02.jpg" alt="Homepage hero reading Nobody warned you. We will." loading="lazy">
+          <figcaption>Fig. 02 · Homepage, rewritten by the two onboarding answers</figcaption>
+        </figure>
+
+      </div>
+    </div>
+  </section>
+
+    <section class="section">
+    <div class="container container--narrow">
+      <p class="section-label">Reflection</p>
+      <h2 class="section-title">What I&rsquo;d change</h2>
+
+      <ul class="case-list">
+        <li><strong style="color:var(--text);">The onboarding has no skip.</strong> A returning visitor takes the call again every time. The right answer is a skip link on the first panel, and remembering the answers for the rest of the browser session.</li>
+        <li><strong style="color:var(--text);">The shaking Decline button has no keyboard equivalent.</strong> The joke is entirely visual, so a keyboard or screen reader user gets the refusal without the reason. The status line should announce itself politely when it changes.</li>
+        <li><strong style="color:var(--text);">Handlers are inline in the markup.</strong> <code style="font-family:var(--mono); color:var(--gold);">onclick</code> attributes throughout rather than listeners bound in one place. It works and it is readable, but it scatters behaviour across the HTML.</li>
+        <li><strong style="color:var(--text);">The numbers are invented.</strong> &ldquo;847 people read this today&rdquo; is placeholder copy from a campaign concept, and a real launch would need it to be true or gone.</li>
+      </ul>
+
+      <div style="display:flex; gap:1.2rem; flex-wrap:wrap; margin-top:2.5rem;">
+        <a class="btn-primary" href="https://ireland-sos.netlify.app/" target="_blank" rel="noopener">Take the call</a>
+              </div>
+    </div>
+  </section>
+
+  <nav class="case-nav" aria-label="Project navigation">
+    <a href="work.html">← All records</a>
+    <a href="project-algernon.html">Flowers for Algernon →</a>
+  </nav>
+
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <span>© 2026 Chen See Ng</span>
+    <span><a href="design-system.html">Design system</a></span>
+    <span><a href="mailto:jingsi00@icloud.com">jingsi00@icloud.com</a></span>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>

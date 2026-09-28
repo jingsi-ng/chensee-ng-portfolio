@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Design System | The Curated Archive</title>
+<meta name="description" content="The design tokens, type scale, and components behind The Curated Archive, documented and rendered live.">
+
+<meta property="og:title" content="Design System | The Curated Archive">
+<meta property="og:description" content="Colour tokens, type scale, and components behind the site, rendered live from the same stylesheet.">
+<meta property="og:type" content="website">
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="progress"></div>
+
+<header class="site-header">
+  <a class="brand" href="index.html">
+    <span class="brand__name">JINGSI</span>
+    <span class="brand__role">Digital Archivist &amp; Designer</span>
+  </a>
+
+  <span class="site-status"><span class="status-dot"></span>Open to work <b>&middot;</b> Dublin &amp; remote</span>
+
+  <button class="nav-toggle" aria-expanded="false" aria-controls="nav">
+    <span>Menu</span>
+    <span class="nav-toggle__bars" aria-hidden="true"><i></i><i></i></span>
+  </button>
+  <nav class="nav" id="nav" aria-label="Main">
+    <a href="index.html">Home</a>
+    <a href="work.html" aria-current="page">Work</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<main>
+
+  <section class="case-hero">
+    <div class="container">
+      <p class="section-label">Reference</p>
+      <h1 class="case-hero__title">The design system</h1>
+      <p class="lead">
+        Everything on this page is rendered live from the same stylesheet the rest
+        of the site uses. Nothing here is a screenshot or a mockup. If a component
+        below looks right, it is right, because it&rsquo;s the actual component.
+      </p>
+
+      <div class="meta-grid">
+        <div class="meta-item">
+          <span class="meta-item__label">Tokens</span>
+          <span class="meta-item__value">20 CSS custom properties</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-item__label">Stylesheet</span>
+          <span class="meta-item__value">One file, 19 numbered sections</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-item__label">Dependencies</span>
+          <span class="meta-item__value">None</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <section class="section">
+    <div class="container">
+      <p class="section-label">01 · Colour</p>
+      <h2 class="section-title">Seven values, one accent, one stamp</h2>
+      <p class="lead">
+        The palette is deliberately narrow. One accent means every gold thing on the
+        page is a signal (a link, a label, a state), so the visitor learns the
+        vocabulary once and it holds everywhere. Red exists for exactly one object:
+        the stamp on the file. Used anywhere else it would stop meaning ink.
+      </p>
+
+      <div class="swatches">
+        <div class="swatch">
+          <span class="swatch__chip" style="background:#0a0a0a; border-bottom:1px solid #222;"></span>
+          <div class="swatch__info">
+            <span class="swatch__name">Ink</span>
+            <span class="swatch__hex">#0A0A0A</span>
+            <p class="swatch__use">Page ground. Warmer than pure black so gold doesn&rsquo;t vibrate against it.</p>
+          </div>
+        </div>
+
+        <div class="swatch">
+          <span class="swatch__chip" style="background:#0d0d0d; border-bottom:1px solid #222;"></span>
+          <div class="swatch__info">
+            <span class="swatch__name">Ink raised</span>
+            <span class="swatch__hex">#0D0D0D</span>
+            <p class="swatch__use">Alternating sections and card surfaces. Separation without a hard edge.</p>
+          </div>
+        </div>
+
+        <div class="swatch">
+          <span class="swatch__chip" style="background:#C88E5D;"></span>
+          <div class="swatch__info">
+            <span class="swatch__name">Brass</span>
+            <span class="swatch__hex">#C88E5D</span>
+            <p class="swatch__use">The only accent. Labels, links, states, focus rings. Nothing else is coloured.</p>
+          </div>
+        </div>
+
+        <div class="swatch">
+          <span class="swatch__chip" style="background:#E8E0D0;"></span>
+          <div class="swatch__info">
+            <span class="swatch__name">Paper</span>
+            <span class="swatch__hex">#E8E0D0</span>
+            <p class="swatch__use">Reserved for the classified file card only, so it reads as a physical object.</p>
+          </div>
+        </div>
+
+        <div class="swatch">
+          <span class="swatch__chip" style="background:#c41e3a;"></span>
+          <div class="swatch__info">
+            <span class="swatch__name">Stamp</span>
+            <span class="swatch__hex">#C41E3A</span>
+            <p class="swatch__use">Ink. Used once, on the classified stamp, so it reads as a physical mark.</p>
+          </div>
+        </div>
+
+        <div class="swatch">
+          <span class="swatch__chip" style="background:#f2efe9;"></span>
+          <div class="swatch__info">
+            <span class="swatch__name">Text</span>
+            <span class="swatch__hex">#F2EFE9</span>
+            <p class="swatch__use">Off-white, not #FFF. Pure white on near-black is fatiguing to read.</p>
+          </div>
+        </div>
+
+        <div class="swatch">
+          <span class="swatch__chip" style="background:#222;"></span>
+          <div class="swatch__info">
+            <span class="swatch__name">Rule</span>
+            <span class="swatch__hex">#222222</span>
+            <p class="swatch__use">Every divider and border. Grid gaps expose it, so lines cost nothing extra.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <section class="section section--alt">
+    <div class="container">
+      <p class="section-label">02 · Typography</p>
+      <h2 class="section-title">Three voices</h2>
+      <p class="lead">
+        A serif for what the archive says about itself, a monospace for what the
+        system says about the archive, and a neutral sans for everything a person
+        actually has to read at length.
+      </p>
+
+      <div style="margin-top:3rem;">
+        <div class="specimen">
+          <div class="specimen__meta">
+            <b>Display</b>
+            Playfair Display<br>
+            Italic 400<br>
+            clamp(2rem to 3.4rem)
+          </div>
+          <p class="specimen__sample sp-display">Selected work</p>
+        </div>
+
+        <div class="specimen">
+          <div class="specimen__meta">
+            <b>Heading</b>
+            Playfair Display<br>
+            Roman 400<br>
+            1.6rem
+          </div>
+          <p class="specimen__sample sp-heading">Exhibition Website Prototype</p>
+        </div>
+
+        <div class="specimen">
+          <div class="specimen__meta">
+            <b>Body</b>
+            Inter<br>
+            Regular 400<br>
+            1rem / 1.8
+          </div>
+          <p class="specimen__sample sp-body">
+            Body copy sits at a comfortable reading measure and never exceeds
+            66 characters per line, because a wide column on a dark background is
+            where readers lose their place.
+          </p>
+        </div>
+
+        <div class="specimen">
+          <div class="specimen__meta">
+            <b>Label</b>
+            Courier New<br>
+            0.7rem<br>
+            letter-spacing .25em
+          </div>
+          <p class="specimen__sample sp-label">Classified File #3191546</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <section class="section">
+    <div class="container">
+      <p class="section-label">03 · Components</p>
+      <h2 class="section-title">The parts bin</h2>
+      <p class="lead">
+        Each component was built once and reused, rather than styled per page.
+        That&rsquo;s what makes the site feel consistent, and what made it possible
+        to restructure the whole navigation later without touching the visuals.
+      </p>
+
+      <div class="spec-shelf">
+
+        <div class="spec-cell">
+          <p class="spec-cell__label">Buttons</p>
+          <div style="display:flex; gap:1rem; flex-wrap:wrap;">
+            <span class="btn-primary">Primary</span>
+            <span class="btn-ghost">Ghost</span>
+          </div>
+          <p class="spec-cell__note">
+            Both invert on hover and lift 2px. No border radius anywhere on the
+            site: an archive is made of straight edges.
+          </p>
+        </div>
+
+        <div class="spec-cell">
+          <p class="spec-cell__label">Tags</p>
+          <div class="tags">
+            <span class="tag">JavaScript</span>
+            <span class="tag">WordPress</span>
+            <span class="tag">p5.js</span>
+          </div>
+          <p class="spec-cell__note">
+            Monospace at 0.64rem. Used only for technology names, never for
+            categories: one shape, one meaning.
+          </p>
+        </div>
+
+        <div class="spec-cell">
+          <p class="spec-cell__label">Clearance bar</p>
+          <div class="skill">
+            <div class="skill__row">
+              <span class="skill__name">HTML &amp; CSS</span>
+              <span class="skill__lvl">Advanced</span>
+            </div>
+            <div class="skill__track"><div class="skill__fill" data-level="92"></div></div>
+          </div>
+          <p class="spec-cell__note">
+            Fills only when scrolled into view, via IntersectionObserver. A bar
+            that has already finished animating reads as decoration.
+          </p>
+        </div>
+
+        <div class="spec-cell">
+          <p class="spec-cell__label">Status</p>
+          <p style="margin:0; color:var(--muted);">
+            <span class="status-dot"></span>Available for work
+          </p>
+          <p class="spec-cell__note">
+            A pulsing 7px dot. The only animated element that loops; everything
+            else fires once and stops.
+          </p>
+        </div>
+
+        <div class="spec-cell">
+          <p class="spec-cell__label">Section label</p>
+          <p class="section-label" style="margin:0;">From the Archive</p>
+          <p class="spec-cell__note">
+            Sits above every heading on every page. Acts as the eyebrow that tells
+            the visitor what kind of content follows.
+          </p>
+        </div>
+
+        <div class="spec-cell">
+          <p class="spec-cell__label">Metrics</p>
+          <div class="metrics" style="margin-top:0; grid-template-columns:1fr 1fr;">
+            <div class="metric">
+              <span class="metric__value">03</span>
+              <span class="metric__label">Records</span>
+            </div>
+            <div class="metric">
+              <span class="metric__value">0</span>
+              <span class="metric__label">Dependencies</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+    <section class="section section--alt">
+    <div class="container container--narrow">
+      <p class="section-label">04 · Motion &amp; access</p>
+      <h2 class="section-title">Rules I held to</h2>
+
+      <ul class="case-list">
+        <li><strong style="color:var(--text);">Motion fires once.</strong> Reveals unobserve themselves after triggering. Nothing loops except the availability dot.</li>
+        <li><strong style="color:var(--text);">Every hover has a keyboard equivalent.</strong> Focus rings are visible and gold, never removed.</li>
+        <li><strong style="color:var(--text);">Reduced motion is honoured.</strong> Under <code style="font-family:var(--mono); color:var(--gold);">prefers-reduced-motion</code> the terminal sequence prints instantly and all transitions collapse to 0.01ms.</li>
+        <li><strong style="color:var(--text);">Nothing depends on JavaScript to be readable.</strong> With JS disabled every page still renders its full content; the reveals just never hide it in the first place.</li>
+        <li><strong style="color:var(--text);">One accent, one meaning.</strong> If it&rsquo;s gold, it&rsquo;s interactive or it&rsquo;s a system label. No decorative gold. The single exception is red, and red only ever means ink on paper.</li>
+      </ul>
+    </div>
+  </section>
+
+  <nav class="case-nav" aria-label="Page navigation">
+    <a href="index.html">← Home</a>
+    <a href="work.html">All records →</a>
+  </nav>
+
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <span>© 2026 Chen See Ng</span>
+    <span><a href="design-system.html">Design system</a></span>
+    <span><a href="contact.html">jingsi00@icloud.com</a></span>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>

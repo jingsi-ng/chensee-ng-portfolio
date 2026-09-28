@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Memory Vault | Case File #002</title>
+<meta name="description" content="A full-stack Fahrenheit 451 archive built with Astro SSR, Supabase auth and Postgres. Authentication, CRUD, relational data, deployed on Netlify.">
+
+<meta property="og:title" content="Memory Vault | A full-stack Fahrenheit 451 archive">
+<meta property="og:description" content="Astro SSR, Supabase auth and Postgres, Tailwind. Real authentication, full CRUD, deployed.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="progress"></div>
+
+<header class="site-header">
+  <a class="brand" href="index.html">
+    <span class="brand__name">JINGSI</span>
+    <span class="brand__role">Digital Archivist &amp; Designer</span>
+  </a>
+
+  <span class="site-status"><span class="status-dot"></span>Open to work <b>&middot;</b> Dublin &amp; remote</span>
+
+  <button class="nav-toggle" aria-expanded="false" aria-controls="nav">
+    <span>Menu</span>
+    <span class="nav-toggle__bars" aria-hidden="true"><i></i><i></i></span>
+  </button>
+  <nav class="nav" id="nav" aria-label="Main">
+    <a href="index.html">Home</a>
+    <a href="work.html" aria-current="page">Work</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<main>
+
+  <section class="case-hero">
+    <div class="container">
+      <p class="section-label">Case File #002</p>
+      <h1 class="case-hero__title">Memory Vault</h1>
+      <p class="lead">
+        A full-stack archive where people register as Keepers, claim a book to
+        memorise, and preserve fragments of it before it burns. Astro server-side
+        rendering, Supabase authentication and Postgres, deployed on Netlify.
+      </p>
+
+      <div class="meta-grid">
+        <div class="meta-item">
+          <span class="meta-item__label">Role</span>
+          <span class="meta-item__value">Full stack: schema, auth, UI</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-item__label">Context</span>
+          <span class="meta-item__value">Web Frameworks, Griffith College Dublin</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-item__label">Stack</span>
+          <span class="meta-item__value">Astro 5 · Supabase · Tailwind · Netlify</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-item__label">Features</span>
+          <span class="meta-item__value">Auth · Full CRUD · Relational data</span>
+        </div>
+      </div>
+
+      <div class="case-live">
+        <a href="https://memoryvault-451.netlify.app/" target="_blank" rel="noopener">Open the site</a>
+        <a href="https://github.com/jingsi-ng/memory-vault" target="_blank" rel="noopener">Source on GitHub</a>
+      </div>
+
+    </div>
+  </section>
+
+    <section class="section">
+    <div class="container container--narrow">
+      <p class="section-label">Concept</p>
+      <h2 class="section-title">Everyone becomes a book</h2>
+      <p class="lead">
+        At the end of Ray Bradbury&rsquo;s <em>Fahrenheit 451</em>, the survivors
+        outside the city have each memorised a single book. They don&rsquo;t own
+        copies, they <em>are</em> the copies. The knowledge lives only as long as
+        the person does.
+      </p>
+      <p class="lead">
+        A CRUD app is normally a set of forms. This one is that premise made
+        operable. You sign up as a <strong style="color:var(--text);">Keeper</strong>
+        and claim a book. You preserve <strong style="color:var(--text);">text
+        fragments</strong> from it into the vault. Other Keepers leave
+        <strong style="color:var(--text);">whispers</strong> on your fragments.
+      </p>
+      <p class="lead">
+        And the delete button says <strong style="color:var(--text);">YES, BURN
+        IT</strong>, under a warning that this permanently destroys knowledge, the
+        same thing the firemen did. Delete confirmations are usually the most
+        forgettable screen in an app. Here it&rsquo;s the one that means the most.
+      </p>
+    </div>
+  </section>
+
+    <section class="section section--alt">
+    <div class="container container--narrow">
+      <p class="section-label">Approach</p>
+      <h2 class="section-title">Five decisions</h2>
+
+      <div class="decisions">
+
+        <div class="decision">
+          <span class="decision__no">01</span>
+          <div>
+            <h3>Server-side rendering, not a client-side SPA</h3>
+            <span class="why">Why Astro in <code style="font-family:var(--mono);">output: 'server'</code></span>
+            <p>
+              Every page that touches user data (the library, a single text, the
+              profile) queries Supabase in Astro&rsquo;s server frontmatter and
+              renders HTML. The browser receives a finished page rather than a
+              loading skeleton that fetches its own data.
+            </p>
+            <p>
+              This also means the ownership checks happen before a byte reaches the
+              client. A user who isn&rsquo;t the keeper of a text is redirected on
+              the server; the edit form never exists for them to inspect.
+            </p>
+          </div>
+        </div>
+
+        <div class="decision">
+          <span class="decision__no">02</span>
+          <div>
+            <h3>Session tokens in httpOnly cookies</h3>
+            <span class="why">The security decision I&rsquo;d defend in an interview</span>
+            <p>
+              On login the access and refresh tokens are written as cookies with
+              <code style="font-family:var(--mono); color:var(--gold);">httpOnly: true</code>,
+              <code style="font-family:var(--mono); color:var(--gold);">sameSite: 'lax'</code>,
+              and <code style="font-family:var(--mono); color:var(--gold);">secure</code>
+              enabled in production only, so local development over http still works.
+            </p>
+            <p>
+              The alternative most tutorials show is localStorage, which any injected
+              script can read. httpOnly means JavaScript can&rsquo;t touch the token
+              at all. The access token expires in seven days, the refresh token in
+              thirty.
+            </p>
+          </div>
+        </div>
+
+        <div class="decision">
+          <span class="decision__no">03</span>
+          <div>
+            <h3>Three tables with real relationships</h3>
+            <span class="why">Why not one flat posts table</span>
+            <p>
+              <code style="font-family:var(--mono); color:var(--gold);">keeper_profiles</code>
+              extends Supabase&rsquo;s auth users with a keeper name and assigned book.
+              <code style="font-family:var(--mono); color:var(--gold);">preserved_texts</code>
+              belongs to a keeper. <code style="font-family:var(--mono); color:var(--gold);">whispers</code>
+              belongs to both a text and a whisperer.
+            </p>
+            <p>
+              Queries join across them, so the library shows who preserved each
+              fragment without a second round trip. The profile page counts a
+              user&rsquo;s whispers using <code style="font-family:var(--mono); color:var(--gold);">head: true</code>, returning the count without fetching a single row.
+            </p>
+          </div>
+        </div>
+
+        <div class="decision">
+          <span class="decision__no">04</span>
+          <div>
+            <h3>Validate on the server, always</h3>
+            <span class="why">Because the client can be skipped</span>
+            <p>
+              Signup checks that passwords match, that they&rsquo;re at least six
+              characters, and that the keeper name is at least three, all in the
+              Astro frontmatter, after the form posts. Errors render back into the
+              page rather than into an alert box.
+            </p>
+            <p>
+              HTML validation attributes are a convenience for the user, not a
+              defence. Anyone can post directly to the endpoint.
+            </p>
+          </div>
+        </div>
+
+        <div class="decision">
+          <span class="decision__no">05</span>
+          <div>
+            <h3>A design system inside Tailwind</h3>
+            <span class="why">Extending rather than fighting the framework</span>
+            <p>
+              Rather than scattering arbitrary values through the markup, the
+              Tailwind config defines the whole language: an ember palette
+              (#FF6B35 primary, #00E5FF secondary, #FF1744 for destructive), three
+              font families, and eight custom keyframe animations: flicker, scan,
+              glow, burn.
+            </p>
+            <p>
+              The <code style="font-family:var(--mono); color:var(--gold);">burn</code>
+              animation is used in exactly one place, on the delete screen. Reserving
+              an effect for a single moment is what makes that moment land.
+            </p>
+          </div>
+        </div>
+
+        <div class="decision">
+          <span class="decision__no">06</span>
+          <div>
+            <h3>Deleting several days of work</h3>
+            <span class="why">The decision I was most reluctant to make</span>
+            <p>
+              Around the midpoint the code had become disorganised enough that every
+              new feature was slower than the last. I restarted the project from
+              nothing and rebuilt it with the Tailwind configuration done properly
+              from the first line.
+            </p>
+            <p>
+              It felt like losing days. It was faster by the end of the same week,
+              and it is the reason the design system is coherent rather than
+              accumulated.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+    <section class="section">
+    <div class="container">
+      <p class="section-label">Systems</p>
+      <h2 class="section-title">What it does</h2>
+
+      <div class="spec-shelf">
+        <div class="spec-cell">
+          <p class="spec-cell__label">Authentication</p>
+          <div class="tags">
+            <span class="tag">Sign up</span>
+            <span class="tag">Log in</span>
+            <span class="tag">Log out</span>
+            <span class="tag">Protected routes</span>
+          </div>
+          <p class="spec-cell__note">
+            Registration creates both an auth user and a linked keeper profile in one
+            flow.
+          </p>
+        </div>
+
+        <div class="spec-cell">
+          <p class="spec-cell__label">Full CRUD</p>
+          <p style="margin:0; color:var(--muted); font-size:.92rem; line-height:1.7;">
+            Create, read, update and delete preserved texts, each gated behind an
+            ownership check on the server.
+          </p>
+        </div>
+
+        <div class="spec-cell">
+          <p class="spec-cell__label">Whispers, in real time</p>
+          <p style="margin:0; color:var(--muted); font-size:.92rem; line-height:1.7;">
+            Threaded responses using Supabase Realtime, so a new comment appears on
+            every open browser without a refresh.
+          </p>
+        </div>
+
+        <div class="spec-cell">
+          <p class="spec-cell__label">Two layers of authorisation</p>
+          <p style="margin:0; color:var(--muted); font-size:.92rem; line-height:1.7;">
+            Ownership is checked in the Astro server frontmatter, and enforced again
+            by Postgres row-level security policies so the rule holds regardless of
+            what calls the database.
+          </p>
+        </div>
+
+        <div class="spec-cell">
+          <p class="spec-cell__label">Search &amp; filter</p>
+          <div class="tags">
+            <span class="tag">Dystopia</span>
+            <span class="tag">Philosophy</span>
+            <span class="tag">Cyberpunk</span>
+            <span class="tag">Forbidden</span>
+          </div>
+          <p class="spec-cell__note">Live search by title or author, plus classification filtering.</p>
+        </div>
+
+        <div class="spec-cell">
+          <p class="spec-cell__label">Profile</p>
+          <p style="margin:0; color:var(--muted); font-size:.92rem; line-height:1.7;">
+            Editable keeper name, assigned book and bio fragment, with counts of texts
+            preserved and whispers sent.
+          </p>
+        </div>
+
+        <div class="spec-cell">
+          <p class="spec-cell__label">Deployment</p>
+          <div class="tags">
+            <span class="tag">Netlify adapter</span>
+            <span class="tag">SSR functions</span>
+          </div>
+          <p class="spec-cell__note">
+            Built and deployed as serverless functions, not a static export.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <section class="section section--alt">
+    <div class="container">
+      <p class="section-label">Interface</p>
+      <h2 class="section-title">The vault</h2>
+
+      <div style="margin-top:3rem;">
+        <figure class="case-figure">
+          <img src="images/vault-01.jpg" alt="Entry screen with the 451 emblem and boot lines" loading="lazy">
+          <figcaption>Fig. 01 · Entry sequence</figcaption>
+        </figure>
+        <figure class="case-figure">
+          <img src="images/vault-02.jpg" alt="Restricted area modal reading 451 degrees Fahrenheit, the temperature at which paper burns" loading="lazy">
+          <figcaption>Fig. 02 · The briefing. The world is set before the first click</figcaption>
+        </figure>
+        <figure class="case-figure">
+          <img src="images/vault-03.jpg" alt="System Access login screen" loading="lazy">
+          <figcaption>Fig. 03 · System Access</figcaption>
+        </figure>
+        <figure class="case-figure">
+          <img src="images/vault-04.jpg" alt="The Library listing six preserved texts with the classification filter open" loading="lazy">
+          <figcaption>Fig. 04 · The Library. Six records, filtered by classification</figcaption>
+        </figure>
+
+      </div>
+    </div>
+  </section>
+
+    <section class="section">
+    <div class="container container--narrow">
+      <p class="section-label">Debugging</p>
+      <h2 class="section-title">The bug that looked like nothing</h2>
+      <p class="lead">
+        Authentication silently did nothing. Logging in through the Supabase dashboard
+        worked; logging in through my own site produced no error, no redirect and no
+        session. Nothing in the code was wrong.
+      </p>
+      <p class="lead">
+        The redirect URL in the Supabase project was still pointing at port 3000, the
+        default I had assumed. Astro runs on 4321. The request was being sent
+        correctly and answered to an address nothing was listening on.
+      </p>
+      <p class="lead">
+        The useful part was not the fix. It was learning to suspect configuration
+        before logic when a feature fails with no error at all, which is a habit
+        that has saved me several times since.
+      </p>
+    </div>
+  </section>
+
+    <section class="section">
+    <div class="container container--narrow">
+      <p class="section-label">Reflection</p>
+      <h2 class="section-title">What I&rsquo;d change</h2>
+      <p class="lead">
+        The ones I still think about are the habits rather than the features.
+      </p>
+
+      <ul class="case-list" style="margin-top:2rem;">
+        <li><strong style="color:var(--text);">The Supabase credentials are hardcoded.</strong> There&rsquo;s a <code style="font-family:var(--mono); color:var(--gold);">.env</code> file, correctly gitignored, and then the client module imports nothing from it. The anon key is public by design so nothing leaked, but it means rotating a key would require a code change and a redeploy.</li>
+        <li><strong style="color:var(--text);">The cascade delete is manual.</strong> Deleting a text runs two queries: whispers first, then the text. If the second fails, the whispers are already gone. A foreign key with <code style="font-family:var(--mono); color:var(--gold);">ON DELETE CASCADE</code> would make it atomic and remove the code entirely.</li>
+        <li><strong style="color:var(--text);">Search filters an already-loaded list.</strong> Fine for a class project, wrong at a thousand rows. The query should do the filtering.</li>
+        <li><strong style="color:var(--text);">The README is still the Astro starter template.</strong> Small, embarrassing, and the first thing anyone opening the repository sees.</li>
+      </ul>
+
+            <div class="spec-cell" style="border:1px solid var(--line); margin-top:2.5rem; max-width:30rem;">
+        <p class="spec-cell__label">Demo account</p>
+        <p style="margin:0; font-family:var(--mono); font-size:.86rem; line-height:1.9; color:var(--text);">
+          demo@memoryvault.app<br>demo1234
+        </p>
+        <p class="spec-cell__note">Sign in with this to browse the library, preserve a text and leave a whisper, without registering.</p>
+      </div>
+
+      <div style="display:flex; gap:1.2rem; flex-wrap:wrap; margin-top:2rem;">
+        <a class="btn-primary" href="https://memoryvault-451.netlify.app/" target="_blank" rel="noopener">Enter the vault</a>
+        <a class="btn-ghost" href="https://github.com/jingsi-ng/memory-vault" target="_blank" rel="noopener">View source</a>
+      </div>
+    </div>
+  </section>
+
+  <nav class="case-nav" aria-label="Project navigation">
+    <a href="project-still.html">← Previous file: Somewhere Still</a>
+    <a href="project-camus.html">Next file: Albert Camus →</a>
+  </nav>
+
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <span>© 2026 Chen See Ng</span>
+    <span><a href="design-system.html">Design system</a></span>
+    <span><a href="contact.html">jingsi00@icloud.com</a></span>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>

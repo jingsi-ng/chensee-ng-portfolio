@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Somewhere Still | Case File #001</title>
+<meta name="description" content="A browser experience about Alzheimer's built as a descent into deep water. Lead developer and designer on a four-person MSc dissertation by practice.">
+
+<meta property="og:title" content="Somewhere Still | Alzheimer's as a descent">
+<meta property="og:description" content="A browser experience where the interface performs the symptom instead of describing it. Three.js, p5.js, GLSL, no framework.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="progress"></div>
+
+<header class="site-header">
+  <a class="brand" href="index.html">
+    <span class="brand__name">JINGSI</span>
+    <span class="brand__role">Digital Archivist &amp; Designer</span>
+  </a>
+
+  <span class="site-status"><span class="status-dot"></span>Open to work <b>&middot;</b> Dublin &amp; remote</span>
+
+  <button class="nav-toggle" aria-expanded="false" aria-controls="nav">
+    <span>Menu</span>
+    <span class="nav-toggle__bars" aria-hidden="true"><i></i><i></i></span>
+  </button>
+  <nav class="nav" id="nav" aria-label="Main">
+    <a href="index.html">Home</a>
+    <a href="work.html" aria-current="page">Work</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<main>
+
+  <section class="case-hero">
+    <div class="container">
+      <p class="section-label">Case File #001</p>
+      <h1 class="case-hero__title">Somewhere Still</h1>
+      <p class="lead">
+        A browser experience about Alzheimer&rsquo;s, built as a descent into deep
+        water. Three lives, seven symptoms, and an interface that performs the
+        condition instead of describing it.
+      </p>
+
+      <div class="meta-grid">
+        <div class="meta-item">
+          <span class="meta-item__label">My role</span>
+          <span class="meta-item__value">Lead developer &amp; site designer</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-item__label">Context</span>
+          <span class="meta-item__value">MSc dissertation by practice, four-person team</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-item__label">Stack</span>
+          <span class="meta-item__value">Three.js · p5.js · GLSL · Vanilla JS</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-item__label">Scale</span>
+          <span class="meta-item__value">No framework, no build step</span>
+        </div>
+      </div>
+
+      <div class="case-live">
+        <a href="https://somewhere-still-griffith.netlify.app/" target="_blank" rel="noopener">Open the site</a>
+        <a href="https://github.com/jingsi-ng/somewhere-still" target="_blank" rel="noopener">Source on GitHub</a>
+      </div>
+
+      <p class="lead" style="margin-top:2rem; font-size:.95rem; color:var(--muted-2);">
+        Team credit: narrative and research by Elin Kok Jia Yi, visual assets by
+        Emily Blum, audio and sound design by Fatih Kulualp. I wrote all of the code
+        and designed the site, including the design language and technical chapters
+        of the dissertation.
+      </p>
+    </div>
+  </section>
+
+    <section class="section">
+    <div class="container container--narrow">
+      <p class="section-label">Concept</p>
+      <h2 class="section-title">Sinking, not forgetting</h2>
+      <p class="lead">
+        Most digital work about Alzheimer&rsquo;s explains it. A timeline of stages,
+        an infographic of the brain, a simulation you watch from outside. All of it
+        keeps the visitor in the position of the observer, which is the one position
+        from which the condition cannot be understood.
+      </p>
+      <p class="lead">
+        The site puts the visitor under water instead. You scroll to descend, the
+        light thins, the fog closes, and three lives drift past as ripples you can
+        enter. Nothing announces itself as a metaphor for cognitive decline. You just
+        sink.
+      </p>
+      <p class="lead">
+        The design rule underneath everything: <strong style="color:var(--text);">the
+        interface performs the symptom rather than naming it.</strong> That single
+        sentence decided the colour system, the typography, the camera, and what the
+        site refuses to tell you.
+      </p>
+    </div>
+  </section>
+
+    <section class="section section--alt">
+    <div class="container container--narrow">
+      <p class="section-label">Design language</p>
+      <h2 class="section-title">Five rules, held everywhere</h2>
+
+      <div class="decisions">
+
+        <div class="decision">
+          <span class="decision__no">01</span>
+          <div>
+            <h3>Colour identifies a person, never a control</h3>
+            <span class="why">The constraint I enforced in code</span>
+            <p>
+              Cool tones are the system: the ocean descends through four fixed depth
+              values, from sea surface at #225986 to the abyss at #05111E, with the
+              fog section sitting at the darkest point in the whole palette.
+              Warm hues belong exclusively to people.
+            </p>
+            <p>
+              Margaret&rsquo;s red is the strictest rule in the build. It appears in
+              her thread and her ripple core and nowhere else, and it is
+              programmatically prevented from rendering in the other two threads. Using
+              a character colour on a button would have handed a person&rsquo;s
+              identity to a piece of system furniture, so no button ever gets one.
+            </p>
+          </div>
+        </div>
+
+        <div class="decision">
+          <span class="decision__no">02</span>
+          <div>
+            <h3>Three typefaces, three speakers</h3>
+            <p>
+              Lora Italic is used only for character dialogue. DM Sans is the
+              interface. Space Mono is reserved for system apparatus: the depth
+              readout, the descent prompt, the ship lamp label, the clinical
+              footnotes. A visitor can tell who is speaking without being told.
+            </p>
+            <p>
+              The entry screen uses Lora alone. The interface typefaces are withheld
+              until the descent begins, so the narrative establishes itself before any
+              system voice appears.
+            </p>
+          </div>
+        </div>
+
+        <div class="decision">
+          <span class="decision__no">03</span>
+          <div>
+            <h3>Affordances stay, signifiers get quiet</h3>
+            <span class="why">Where the theory earned its place</span>
+            <p>
+              Norman separates an affordance from the signifier that advertises it.
+              Every interactive object here remains fully functional while its cues
+              stay deliberately subtle: a pulsing opacity glow, a three-state cursor
+              that rests, wakes and presses, and staggered phase timers so objects in
+              one room breathe independently rather than in unison.
+            </p>
+            <p>
+              An opening tutorial was written and then rejected. It would have taught
+              the vocabulary in ten seconds and removed the discovery the piece
+              depends on. Instead a priming flag renders each cue at full strength on
+              first contact only, teaching once and then receding. Under
+              <code style="font-family:var(--mono); color:var(--gold);">prefers-reduced-motion</code>
+              the pulse becomes fixed opacity.
+            </p>
+          </div>
+        </div>
+
+        <div class="decision">
+          <span class="decision__no">04</span>
+          <div>
+            <h3>A camera that lags behind the hand</h3>
+            <span class="why">The research made visible</span>
+            <p>
+              The rig is two nested groups. The outer holds position and answers
+              scroll; the inner holds rotation and answers the pointer. They are
+              independent, so looking around while sinking does not stop the descent,
+              and stopping the descent does not take away the freedom to look.
+            </p>
+            <p>
+              Scroll reaches the camera through an eased value closing six percent of
+              the remaining distance per frame, so fast scrolling gets a delayed
+              answer and the water never tracks a hand exactly. Field of view widens
+              from 68 to 82 degrees across the full descent: the subject holds its
+              size while the space around it stretches. That dolly zoom was chosen to
+              reflect the reduced depth and distance perception documented in our
+              primary research, and it produces a disorientation visitors feel without
+              being able to point at its cause.
+            </p>
+          </div>
+        </div>
+
+        <div class="decision">
+          <span class="decision__no">05</span>
+          <div>
+            <h3>Withhold inside the story, cite outside it</h3>
+            <span class="why">The decision I defend hardest</span>
+            <p>
+              Inside the three threads, symptoms are never named. Margaret&rsquo;s
+              mother&rsquo;s white shoes fuse with a doll&rsquo;s red ones, and the
+              interface simply accepts the input without correction. That is
+              confabulation, performed rather than captioned. Megan&rsquo;s canvas
+              colours shift and no prompt explains why. Naming it would hand the
+              visitor the observer&rsquo;s seat again.
+            </p>
+            <p>
+              The clinical section does the opposite, and the order matters. Each of
+              seven stages ends in a failure the visitor performs themselves. In stage
+              three an on-screen keyboard refuses to let letters assemble, which is
+              anomia. Roughly three seconds later, a footnote surfaces in the corner
+              citing the literature. Putting the citation after the friction converts a
+              reference into recognition.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+    <section class="section">
+    <div class="container">
+      <p class="section-label">Build</p>
+      <h2 class="section-title">Engineering decisions</h2>
+
+      <div class="spec-shelf">
+        <div class="spec-cell">
+          <p class="spec-cell__label">Libraries per document</p>
+          <p style="margin:0; color:var(--muted); font-size:.92rem; line-height:1.7;">
+            Three.js for the ocean and the fog. p5.js for Megan&rsquo;s painting
+            surface. Thomas loads both. Margaret loads neither, running on Canvas 2D
+            and CSS custom properties.
+          </p>
+          <p class="spec-cell__note">
+            The thread with the heaviest visual treatment carries the lightest stack.
+            p5 loads on demand for her closing sequence, so only visitors who reach
+            the end pay for it.
+          </p>
+        </div>
+
+        <div class="spec-cell">
+          <p class="spec-cell__label">Entry weight</p>
+          <p style="margin:0; color:var(--muted); font-size:.92rem; line-height:1.7;">
+            104 KB of local code on entry against 1,097 KB for the site as a whole.
+            The multi-page architecture is what makes that split possible.
+          </p>
+        </div>
+
+        <div class="spec-cell">
+          <p class="spec-cell__label">GLSL, not CSS filters</p>
+          <p style="margin:0; color:var(--muted); font-size:.92rem; line-height:1.7;">
+            Marine ripples and marine snow run through ShaderMaterial. CSS filters
+            work on a fixed operation set and cannot take uniforms updated per frame
+            by scroll depth.
+          </p>
+        </div>
+
+        <div class="spec-cell">
+          <p class="spec-cell__label">p5 in instance mode</p>
+          <p style="margin:0; color:var(--muted); font-size:.92rem; line-height:1.7;">
+            Global mode would have collided with Three.js. Instance mode keeps both
+            libraries in one document without namespace conflict.
+          </p>
+        </div>
+
+        <div class="spec-cell">
+          <p class="spec-cell__label">Local first, CDN fallback</p>
+          <p style="margin:0; color:var(--muted); font-size:.92rem; line-height:1.7;">
+            Every library resolves locally and falls back to a CDN, including the
+            hand-tracking model. A submitted build should not depend on a third
+            party staying up.
+          </p>
+        </div>
+
+        <div class="spec-cell">
+          <p class="spec-cell__label">No build step</p>
+          <p style="margin:0; color:var(--muted); font-size:.92rem; line-height:1.7;">
+            The source files are exactly what the browser runs. A minifier was
+            considered and left out so the delivered code stays readable, at a cost
+            of 180 to 305 KB per thread script.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <section class="section section--alt">
+    <div class="container container--narrow">
+      <p class="section-label">Detail</p>
+      <h2 class="section-title">Paint that dries badly</h2>
+      <p class="lead">
+        Megan is a painter. Her studio runs four independent p5 buffers: the room, a
+        static reference artwork, the visitor&rsquo;s own strokes, and a memory layer
+        above them, so her marks can diverge from what she meant to paint while both
+        stay visible at once.
+      </p>
+      <p class="lead">
+        The engine holds up to two hundred wet marks at a time, each moving through
+        five settling stages over 1.6 seconds, bleeding and granulating at the edges
+        and occasionally dripping. Past the cap, the oldest marks fade out rather than
+        vanishing.
+      </p>
+      <p class="lead">
+        A lucidity scalar drives a colour shift in HSB space as her clarity declines,
+        so the same gesture produces a wider, more distorted mark than it did ten
+        minutes earlier. Applying that as a post-process filter over a finished stroke
+        was tested and rejected: the drift has to happen at the moment the paint lands,
+        or the visitor never connects the change to their own hand.
+      </p>
+      <p class="lead">
+        There is no screenshot of this one. A still frame shows a mark; the whole point
+        is what the mark does over the next 1.6 seconds, so it only reads in motion.
+        <a href="https://somewhere-still-griffith.netlify.app/" target="_blank" rel="noopener" style="color:var(--gold); border-bottom:1px solid var(--gold-dim);">Open her studio</a>
+        and put down a few strokes.
+      </p>
+    </div>
+  </section>
+
+    <section class="section">
+    <div class="container">
+      <p class="section-label">Interface</p>
+      <h2 class="section-title">The descent, and the fog</h2>
+
+      <div style="margin-top:3rem;">
+        <figure class="case-figure">
+          <img src="images/still-01.jpg" alt="Landing screen reading She is not gone. She is somewhere you have not looked yet." loading="lazy">
+          <figcaption>Fig. 01 · The surface. Lora for the narrative, DM Sans for instruction, Space Mono for the depth readout</figcaption>
+        </figure>
+        <figure class="case-figure">
+          <img src="images/still-02.jpg" alt="Character ripples glowing in mid-water at 1,451 metres" loading="lazy">
+          <figcaption>Fig. 02 · 1,451 m. Warm hues belong only to people</figcaption>
+        </figure>
+        <figure class="case-figure">
+          <img src="images/still-03.jpg" alt="Paper boats at the surface, each lowering a light on a line into the water" loading="lazy">
+          <figcaption>Fig. 03 · Paper boats at the surface, each lowering a light</figcaption>
+        </figure>
+        <figure class="case-figure">
+          <img src="images/still-04.jpg" alt="The end of the descent at 4,143 metres" loading="lazy">
+          <figcaption>Fig. 04 · 4,143 m. As deep as memory goes</figcaption>
+        </figure>
+        <figure class="case-figure">
+          <img src="images/still-05.jpg" alt="On-screen keyboard under the question What is your name, with four letters entered" loading="lazy">
+          <figcaption>Fig. 05 · Inside the Fog, stage three. The question is simple and the keyboard is right there</figcaption>
+        </figure>
+        <figure class="case-figure">
+          <img src="images/still-06.jpg" alt="The same letters scrambled into nonsense, with the line let it go, there is something else" loading="lazy">
+          <figcaption>Fig. 06 · The letters refuse to assemble. This is anomia; the clinical footnote arrives three seconds later</figcaption>
+        </figure>
+
+      </div>
+    </div>
+  </section>
+
+    <section class="section section--alt">
+    <div class="container container--narrow">
+      <p class="section-label">Testing</p>
+      <h2 class="section-title">What testers changed</h2>
+      <p class="lead">
+        Remote feedback plus moderated in-person sessions. The changes below are the
+        ones that came from watching people fail at something I had assumed was
+        obvious.
+      </p>
+
+      <ul class="case-list">
+        <li><strong style="color:var(--text);">Nobody knew what was clickable.</strong> The subtle-signifier principle had gone too far. The three-state cursor and the breathing cue system exist because of this, and they are the fix that kept the principle intact instead of abandoning it.</li>
+        <li><strong style="color:var(--text);">&ldquo;Descend&rdquo; was not an instruction.</strong> It read as a mood word. Changed to &ldquo;scroll to descend&rdquo;, which is less elegant and considerably more useful.</li>
+        <li><strong style="color:var(--text);">The landing page could be clicked straight through.</strong> Visitors skipped the moment the whole piece is built on. Locked it so the descent has to be scrolled.</li>
+        <li><strong style="color:var(--text);">The thread order was wrong.</strong> Originally Margaret, Megan, Thomas. Reordered to Megan, Thomas, Margaret so the sequence follows the progression of the disease rather than the order we happened to build them.</li>
+        <li><strong style="color:var(--text);">Nobody could describe the story afterwards.</strong> Each thread worked; the arc across them did not survive. &ldquo;The Whole of It&rdquo; was built in response, unlocking after a thread and carrying a shared visual language with per-character treatment.</li>
+        <li><strong style="color:var(--text);">Audio was silently blocked on the live domain.</strong> It worked locally and failed on Netlify&rsquo;s fresh domain because of autoplay policy. Added guarded playback and a context unlock to recover it.</li>
+      </ul>
+    </div>
+  </section>
+
+    <section class="section">
+    <div class="container container--narrow">
+      <p class="section-label">Reflection</p>
+      <h2 class="section-title">What I&rsquo;d change</h2>
+
+      <ul class="case-list">
+        <li><strong style="color:var(--text);">Subtlety needed a floor, and I found it too late.</strong> Withholding signifiers was the right principle and I pushed it past the point where people could act. Testing rescued it. A first round two weeks earlier would have cost far less rework.</li>
+        <li><strong style="color:var(--text);">Thread scripts are 180 to 305 KB and unminified.</strong> Defensible for a submitted academic build where readable source is part of the deliverable. Not defensible for anything with real users on mobile data.</li>
+        <li><strong style="color:var(--text);">Three threads, one shared vocabulary, three separate codebases.</strong> The cursor, the cue timers and the descent logic are implemented more than once. A shared module would have made the fourth section cheaper to build.</li>
+        <li><strong style="color:var(--text);">Accessibility stopped at reduced motion.</strong> That one is handled properly, but a piece built on visual subtlety and scroll has no real path for a screen reader or keyboard-only visitor, and I do not have a good answer for what that version should be.</li>
+      </ul>
+
+      <div style="display:flex; gap:1.2rem; flex-wrap:wrap; margin-top:2.5rem;">
+        <a class="btn-primary" href="https://somewhere-still-griffith.netlify.app/" target="_blank" rel="noopener">Begin the descent</a>
+        <a class="btn-ghost" href="https://github.com/jingsi-ng/somewhere-still" target="_blank" rel="noopener">View source</a>
+      </div>
+    </div>
+  </section>
+
+  <nav class="case-nav" aria-label="Project navigation">
+    <a href="work.html">← All records</a>
+    <a href="project-sos.html">Next file: Ireland SOS →</a>
+  </nav>
+
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <span>© 2026 Chen See Ng</span>
+    <span><a href="design-system.html">Design system</a></span>
+    <span><a href="mailto:jingsi00@icloud.com">jingsi00@icloud.com</a></span>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>

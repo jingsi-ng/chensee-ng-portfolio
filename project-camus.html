@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Albert Camus | Case File #003</title>
+<meta name="description" content="An eleven-page responsive site on Albert Camus. Design tokens, dark mode, accessible components, 44 commits.">
+
+<meta property="og:title" content="Albert Camus | An eleven-page responsive site">
+<meta property="og:description" content="Design token system, dark mode, accessible components, hand-built carousel and timeline. No framework.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="progress"></div>
+
+<header class="site-header">
+  <a class="brand" href="index.html">
+    <span class="brand__name">JINGSI</span>
+    <span class="brand__role">Digital Archivist &amp; Designer</span>
+  </a>
+
+  <span class="site-status"><span class="status-dot"></span>Open to work <b>&middot;</b> Dublin &amp; remote</span>
+
+  <button class="nav-toggle" aria-expanded="false" aria-controls="nav">
+    <span>Menu</span>
+    <span class="nav-toggle__bars" aria-hidden="true"><i></i><i></i></span>
+  </button>
+  <nav class="nav" id="nav" aria-label="Main">
+    <a href="index.html">Home</a>
+    <a href="work.html" aria-current="page">Work</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<main>
+
+  <section class="case-hero">
+    <div class="container">
+      <p class="section-label">Case File #003</p>
+      <h1 class="case-hero__title">Albert Camus</h1>
+      <p class="lead">
+        An eleven-page responsive site on the life and work of Albert Camus, built
+        from scratch in HTML, CSS and JavaScript. A design token system, dark mode,
+        accessible interactive components, and forty-four commits of getting it
+        wrong before getting it right.
+      </p>
+
+      <div class="meta-grid">
+        <div class="meta-item">
+          <span class="meta-item__label">Role</span>
+          <span class="meta-item__value">Design, build, content architecture</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-item__label">Context</span>
+          <span class="meta-item__value">Web Authoring, Griffith College Dublin</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-item__label">Stack</span>
+          <span class="meta-item__value">HTML · CSS · Vanilla JS · Git</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-item__label">Scale</span>
+          <span class="meta-item__value">11 pages · ~8,700 lines · 0 dependencies</span>
+        </div>
+      </div>
+
+      <div class="case-live">
+        <a href="https://camus-tribute.netlify.app/" target="_blank" rel="noopener">Open the site</a>
+        <a href="https://github.com/jingsi-ng/camus" target="_blank" rel="noopener">Source on GitHub</a>
+      </div>
+
+    </div>
+  </section>
+
+    <section class="section">
+    <div class="container container--narrow">
+      <p class="section-label">Concept</p>
+      <h2 class="section-title">Entering the absurd</h2>
+      <p class="lead">
+        Camus argued that life has no inherent meaning, and that recognising this is
+        the beginning of freedom rather than the end of hope. A site about him
+        shouldn&rsquo;t open with a hero image and a subscribe box.
+      </p>
+      <p class="lead">
+        So it opens on a black screen with one line typing itself out in French:
+        <em>Aujourd&rsquo;hui, maman est morte. Ou peut-être hier.</em> The first
+        sentence of <em>L&rsquo;Étranger</em>. The English translation fades in
+        underneath, then the thesis, then a single door: <strong style="color:var(--text);">Enter
+        the Absurd</strong>.
+      </p>
+      <p class="lead">
+        Nothing else is on that page. The visitor has to sit through about four
+        seconds before they can go anywhere, which is the point, and also why there
+        is a &ldquo;press any key to skip&rdquo; line in the corner. Making people
+        wait is a design decision; trapping them is a bug.
+      </p>
+    </div>
+  </section>
+
+    <section class="section section--alt">
+    <div class="container container--narrow">
+      <p class="section-label">Approach</p>
+      <h2 class="section-title">Five decisions</h2>
+
+      <div class="decisions">
+
+        <div class="decision">
+          <span class="decision__no">01</span>
+          <div>
+            <h3>Fifty tokens before any page was styled</h3>
+            <span class="why">Why the system came first</span>
+            <p>
+              Every colour, font, transition curve and alpha level lives in CSS
+              custom properties at the top of the stylesheet, including the
+              intermediate steps, like eight preset text opacities rather than
+              scattering <code style="font-family:var(--mono); color:var(--gold);">rgba()</code>
+              values through 3,600 lines.
+            </p>
+            <p>
+              This is what made dark mode a twenty-line change instead of a rewrite.
+              Under <code style="font-family:var(--mono); color:var(--gold);">prefers-color-scheme: dark</code>
+              the same token names are reassigned and every one of the eleven pages
+              follows, because no component ever referenced a raw hex value.
+            </p>
+          </div>
+        </div>
+
+        <div class="decision">
+          <span class="decision__no">02</span>
+          <div>
+            <h3>Typing speed that isn&rsquo;t constant</h3>
+            <span class="why">A small detail that carries the whole opening</span>
+            <p>
+              A typewriter effect at a fixed interval reads as a machine. The entry
+              animation varies the interval randomly around 70ms, pauses 100ms at
+              spaces, and holds for 350ms at punctuation.
+            </p>
+            <p>
+              That last one does the work. The comma in <em>&ldquo;Ou peut-être
+              hier&rdquo;</em> is where the narrator&rsquo;s indifference lands, and
+              a third of a second of silence there makes the line feel written by
+              someone rather than printed by something.
+            </p>
+          </div>
+        </div>
+
+        <div class="decision">
+          <span class="decision__no">03</span>
+          <div>
+            <h3>One observer pattern, two jobs</h3>
+            <span class="why">Reusing the mechanism rather than the code</span>
+            <p>
+              <code style="font-family:var(--mono); color:var(--gold);">IntersectionObserver</code>
+              drives both the scroll reveals and the image lazy-loading. Reveals read
+              a <code style="font-family:var(--mono); color:var(--gold);">data-delay</code>
+              attribute so elements in a group stagger; images swap
+              <code style="font-family:var(--mono); color:var(--gold);">data-src</code>
+              into <code style="font-family:var(--mono); color:var(--gold);">src</code>
+              only once they approach the viewport.
+            </p>
+            <p>
+              Both unobserve themselves after firing. On a site with this many images
+              across eleven pages, leaving observers attached to everything is how you
+              build a scroll that stutters.
+            </p>
+          </div>
+        </div>
+
+        <div class="decision">
+          <span class="decision__no">04</span>
+          <div>
+            <h3>Three input methods for one carousel</h3>
+            <span class="why">Where most hand-built carousels fail</span>
+            <p>
+              The book carousel responds to arrow buttons, keyboard left/right, dot
+              navigation, clicking a book directly, and touch swipe. Building all
+              five paths through a single state function meant they couldn&rsquo;t
+              drift out of sync with each other.
+            </p>
+            <p>
+              The bibliography accordion works the same way: one entry open at a
+              time, <code style="font-family:var(--mono); color:var(--gold);">aria-expanded</code>
+              maintained on every toggle, so the component reports its own state
+              rather than only looking like it changed.
+            </p>
+          </div>
+        </div>
+
+        <div class="decision">
+          <span class="decision__no">05</span>
+          <div>
+            <h3>Committing the mistakes</h3>
+            <span class="why">Why the Git history is part of the work</span>
+            <p>
+              Forty-four commits, and the messages are honest:
+              <em>fix the bug (works)</em>, <em>mobile responsive mistakes change</em>,
+              <em>compress images</em>, <em>accessibility</em>, <em>dark mode color</em>.
+            </p>
+            <p>
+              I could have squashed it into something tidier. I&rsquo;d rather show
+              the actual shape of the build: a draft, then accessibility, then
+              responsive fixes, then performance, then a second pass on colour once
+              dark mode revealed what the light palette had been hiding.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+    <section class="section">
+    <div class="container">
+      <p class="section-label">Systems</p>
+      <h2 class="section-title">What&rsquo;s in it</h2>
+
+      <div class="spec-shelf">
+        <div class="spec-cell">
+          <p class="spec-cell__label">Eleven pages</p>
+          <div class="tags">
+            <span class="tag">Entry</span>
+            <span class="tag">Home</span>
+            <span class="tag">Biography</span>
+            <span class="tag">Works</span>
+            <span class="tag">Explore</span>
+            <span class="tag">News</span>
+            <span class="tag">About</span>
+          </div>
+          <p class="spec-cell__note">
+            Plus dedicated pages for <em>The Stranger</em>, <em>The Myth of
+            Sisyphus</em>, <em>A Happy Death</em>, and an essay on why Camus.
+          </p>
+        </div>
+
+        <div class="spec-cell">
+          <p class="spec-cell__label">Interactive timeline</p>
+          <p style="margin:0; color:var(--muted); font-size:.92rem; line-height:1.7;">
+            Click a year to expand its detail. Height animates from measured
+            <code style="font-family:var(--mono); color:var(--gold);">scrollHeight</code>
+            rather than a guessed maximum, then scrolls itself to centre.
+          </p>
+        </div>
+
+        <div class="spec-cell">
+          <p class="spec-cell__label">Dark mode</p>
+          <p style="margin:0; color:var(--muted); font-size:.92rem; line-height:1.7;">
+            Full token remap under <code style="font-family:var(--mono); color:var(--gold);">prefers-color-scheme</code>.
+            The sand accent lightens from #C4A574 to #E8B86D so it holds contrast on
+            black.
+          </p>
+        </div>
+
+        <div class="spec-cell">
+          <p class="spec-cell__label">Accessibility</p>
+          <div class="tags">
+            <span class="tag">27 aria-label</span>
+            <span class="tag">26 aria-expanded</span>
+            <span class="tag">Keyboard nav</span>
+          </div>
+          <p class="spec-cell__note">
+            Every collapsible component reports state. The entry animation can be
+            skipped with any key.
+          </p>
+        </div>
+
+        <div class="spec-cell">
+          <p class="spec-cell__label">Typography</p>
+          <p style="margin:0; color:var(--muted); font-size:.92rem; line-height:1.7;">
+            Courier Prime for headings, Merriweather for body. A typewriter face for
+            a writer, a serif built for screen reading for the reading.
+          </p>
+        </div>
+
+        <div class="spec-cell">
+          <p class="spec-cell__label">Performance</p>
+          <div class="tags">
+            <span class="tag">AVIF</span>
+            <span class="tag">WebP</span>
+            <span class="tag">Lazy load</span>
+          </div>
+          <p class="spec-cell__note">
+            Modern formats where the browser supports them, with lazy loading across
+            the image-heavy pages.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <section class="section section--alt">
+    <div class="container">
+      <p class="section-label">Interface</p>
+      <h2 class="section-title">The site</h2>
+
+      <div style="margin-top:3rem;">
+        <figure class="case-figure">
+          <img src="images/camus-01.jpg" alt="Home page with a portrait of Camus beside the heading L Absurde" loading="lazy">
+          <figcaption>Fig. 01 · Home</figcaption>
+        </figure>
+        <figure class="case-figure">
+          <img src="images/camus-02.jpg" alt="Biography timeline with 1913 expanded" loading="lazy">
+          <figcaption>Fig. 02 · Biography, expandable timeline</figcaption>
+        </figure>
+        <figure class="case-figure">
+          <img src="images/camus-03.jpg" alt="The Myth of Sisyphus book page" loading="lazy">
+          <figcaption>Fig. 03 · Works: The Myth of Sisyphus</figcaption>
+        </figure>
+        <figure class="case-figure">
+          <img src="images/camus-04.jpg" alt="How I Found Camus, the personal essay page" loading="lazy">
+          <figcaption>Fig. 04 · Why Him, the personal page</figcaption>
+        </figure>
+        <figure class="case-figure">
+          <img src="images/camus-05.jpg" alt="Entry screen with the first line of L Etranger fully typed and nothing else on the page yet" loading="lazy">
+          <figcaption>Fig. 05 · Entry. The first line finishes alone before anything else appears</figcaption>
+        </figure>
+
+      </div>
+    </div>
+  </section>
+
+    <section class="section">
+    <div class="container container--narrow">
+      <p class="section-label">Process</p>
+      <h2 class="section-title">Before any code</h2>
+      <p class="lead">
+        The site was planned on paper first: a sitemap of eleven pages, wireframes for
+        the entry, home, works and mobile layouts, and a written brief naming the
+        concept before a single decision about colour.
+      </p>
+
+      <div class="decisions">
+
+        <div class="decision">
+          <span class="decision__no">01</span>
+          <div>
+            <h3>Naming the concept: Absurdist Minimalism</h3>
+            <p>
+              The brief set the rule the rest of the design had to follow. Start cold
+              and restrained in black, white and grey, then let sand and gold appear
+              as the visitor goes deeper, matching the way Camus moves from confronting
+              an indifferent universe to arguing for living anyway.
+            </p>
+            <p>
+              Having that written down meant later decisions were tests rather than
+              preferences. A warm accent on the entry page would have broken the rule,
+              so it did not happen.
+            </p>
+          </div>
+        </div>
+
+        <div class="decision">
+          <span class="decision__no">02</span>
+          <div>
+            <h3>Research in two directions, then a rejection</h3>
+            <p>
+              I collected brutalist web design first, because raw typewriter type on
+              stark black reads as honest rather than pretty, which felt correct for
+              the absurd. Then I collected minimalist reference: large typography with
+              a great deal of empty space.
+            </p>
+            <p>
+              The brutalist direction lost. It was dark and heavy where Camus is
+              actually full of Mediterranean light, and the calm, breathable layouts
+              turned out to carry the philosophy better than the aggressive ones did.
+              Reference collected and then argued against is worth more than reference
+              that only confirms the first instinct.
+            </p>
+          </div>
+        </div>
+
+        <div class="decision">
+          <span class="decision__no">03</span>
+          <div>
+            <h3>Two typefaces, two jobs</h3>
+            <p>
+              Courier Prime for headings, because a 1940s typewriter face is what
+              Camus&rsquo; own manuscripts would have come off. Merriweather for body,
+              because it was drawn for screen reading and the site asks people to read
+              at length.
+            </p>
+            <p>
+              The pairing carries the period without making the reading harder, which
+              a single typewriter face throughout would have done.
+            </p>
+          </div>
+        </div>
+
+        <div class="decision">
+          <span class="decision__no">04</span>
+          <div>
+            <h3>Wireframing mobile alongside desktop</h3>
+            <p>
+              The home page was wireframed twice, desktop and mobile, before any CSS.
+              Deciding in the sketch that the three concept cards collapse into a
+              single column meant the responsive behaviour was a plan rather than a
+              repair.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+    <section class="section">
+    <div class="container container--narrow">
+      <p class="section-label">Reflection</p>
+      <h2 class="section-title">What I&rsquo;d change</h2>
+
+      <ul class="case-list">
+        <li><strong style="color:var(--text);">Dark mode has no manual override.</strong> It follows the operating system and gives the visitor no say. There&rsquo;s a commit called <em>compress images</em> but none called <em>theme toggle</em>, and that&rsquo;s the gap I&rsquo;d close first.</li>
+        <li><strong style="color:var(--text);">The compression pass didn&rsquo;t go far enough.</strong> A few images are still around half a megabyte. I converted the worst offenders and stopped when the page felt fast on my own connection, which is not the same as being fast.</li>
+        <li><strong style="color:var(--text);">3,600 lines in one stylesheet.</strong> The token block at the top keeps it navigable, but it should have been split by page or component. I know this because I started scrolling to find things instead of searching.</li>
+        <li><strong style="color:var(--text);">No build step.</strong> Nothing is minified and the CSS ships every rule to every page. Fine at this scale, wrong as a habit.</li>
+      </ul>
+
+      <div style="display:flex; gap:1.2rem; flex-wrap:wrap; margin-top:2.5rem;">
+        <a class="btn-primary" href="https://camus-tribute.netlify.app/" target="_blank" rel="noopener">Visit the site</a>
+        <a class="btn-ghost" href="https://github.com/jingsi-ng/camus" target="_blank" rel="noopener">View source</a>
+      </div>
+    </div>
+  </section>
+
+  <nav class="case-nav" aria-label="Project navigation">
+    <a href="project-vault.html">← Previous file: Memory Vault</a>
+    <a href="project-androids.html">Next file: Do Androids Dream? →</a>
+  </nav>
+
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <span>© 2026 Chen See Ng</span>
+    <span><a href="design-system.html">Design system</a></span>
+    <span><a href="contact.html">jingsi00@icloud.com</a></span>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>
